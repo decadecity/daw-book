@@ -1,9 +1,9 @@
-## Accessibility
+# Accessibility
 People often think of accessibility as being for the disabled but, done right, it will make your site more accessible for all your users regardless of ability, device and conditions.
 
 Accessibility can seem daunting but if you get the basics right throughout the process then it doesn't have to be a big thing.  Accessibility only really becomes a problem when you try and retro-fit it to a project at the end.
 
-### Structure
+## Structure
 
   * Image <code>alt</code> attributes
   * Form labels
@@ -17,7 +17,7 @@ We already have semantic markup and that's a brilliant foundation but there are 
   * Use the tabindex attribute to make sure that all your controls are accessible by keyboard navigation in a logical fashion. We'll come on to keyboard navigation later but it's not just for keyboards - the D-pad on game console controllers is normally mapped to this.  You can actually do quite a bit with the tabindex attribute so I suggest you look at the documentation.
   * ARIA roles have the promise to give a significant boost to assistive technologies but unfortunately it seems support for them in assistive technologies is slow in arriving.  It's definitely worth finding out about them and putting them into your code but don't rely on them.
 
-### Presentation
+## Presentation
 
   * Contrast - 4.5:1
   * Focus highlight
@@ -33,3 +33,4 @@ Set a prominent focus highlight.  This is essential for keyboard navigation.  Th
 
 Don't use pixels for fixed dimensions - use ems.  This allows users to change the base or minimum font sizes and your site won't fall apart.
 
+s

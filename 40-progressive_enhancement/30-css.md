@@ -1,4 +1,4 @@
-## CSS
+# CSS
 
   * Baseline presentation
   * Media queries
@@ -6,7 +6,7 @@
 
 Like HTML, CSS has progressive enhancement built in - browsers will ignore things they don't understand.  Again, providing we get the basics right, we can use advanced features provided we don't rely on them.
 
-### Baseline presentation
+## Baseline presentation
 
   * Colours, typography, backgrounds, borders, etc.
   * Linear layout - no floats.
@@ -20,11 +20,11 @@ Don't add any interaction enhancements at this point - specifically no hovers.
 
 The site's not going to look very inspiring at this point, it's just one long list of branded content - not much different to the unstyled HTML.  However, this is exactly what we want - it's a baseline presentation that any browser with CSS support will be able to handle.
 
-### Media Queries
+## Media Queries
 
-  Layout solution
-  Media query support: <code>@media only all</code>
-  Not just width
+  * Layout solution
+  * Media query support: <code>@media only all</code>
+  * Not just width
 
 It's important to remember that media queries and responsive design are not a silver bullet to cross device compatibility.  They are a layout solution.
 
@@ -36,13 +36,13 @@ This is essentially our "cutting the mustard" test for good CSS support so, as w
 
 Don't forget that there are more media queries than just width.  For example height can be very useful to compress vertical whitespace for small screens in landscape orientation - such as Google Glass.
 
-### Interaction optimisations
+## Interaction optimisations
 As different screen sizes require different layout requirements, different interface methods require different interface requirements.
 
-  Sequential (keyboard)
-  Direct (touch)
-  Location aware (hover)
-  Ambient / Passive (sensors)
+  * Sequential (keyboard)
+  * Direct (touch)
+  * Location aware (hover)
+  * Ambient / Passive (sensors)
 
 There is a hierarchy of interactions.  Sequential navigation where you move from one item to the next in sequence is the baseline, this is normally keyboard navigation but that also includes things like game controllers.  The key to sequential interaction is keeping the user informed of where the current focus of interaction is.
 

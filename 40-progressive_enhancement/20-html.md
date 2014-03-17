@@ -1,3 +1,4 @@
+# HTML
 The foundation of any site is the structure of the HTML but, even with a mobile first approach, all too often not enough consideration is given to this aspect of the process. Using an extensible base template is a good idea for a number of reasons but some thought should be given to how much of the site chrome (headings, footers, menus etc.) is fixed in the template.
 
 Look at the use cases for your site, look at user journeys, look at link tracking in analytics and conduct user testing to find out how your users actually use your site. This should inform the information hierarchy for each page which will form the linear order of the content on narrow screens - with more space you can float and re-position content to form a richer and more consistent layout but on a small screen you have to have the order right in the markup.

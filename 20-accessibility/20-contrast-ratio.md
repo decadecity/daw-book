@@ -1,3 +1,4 @@
+# Understanding contrast ratio
 Insufficient contrast ratio is one of the most common accessibility issues with websites and this may be due to a lack of understanding of the concerns it addresses.
 
 ## What is contrast ratio?

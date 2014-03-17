@@ -1,16 +1,18 @@
-###Touch
+#Interactions
+
+##Touch
 The touch interface should be the baseline for the UI as it gives us the best baseline for enhancement - it is easier to build up from the UI built for touch than to adapt a more traditional pointer interface to be suitable for touch, particularly as touch devices tend to translate touch events to pointer events anyway.
 
-####Touch targets
+###Touch targets
 The first key to a touch UI is targets that are easy to pick out with a finger, given the variety of device pixel densities don't get too hung up on exact physical sizes but - as ever - make sure you test on a representative sample of devices to ensure the experience is acceptable.
 
-###Hover states
+##Hover states
 The second key to a touch interface is to avoid hover states, everything should be driven from touch/ click events.  Whilst many devices will trigger the hover state on a touch event it's not universal and the biggest problem with hover states comes when you overload items so they have different actions on hover and click - on touch devices the two events are indistinguishable.
 
-###Keyboard
+##Keyboard
 When navigating using the keyboard the important thing to remember is that it is sequential, you move from one element to the next in a set order and you need to know where you are in the sequence when navigating.
 
-####Tabindex
+###Tabindex
 By default browsers will move through focusable elements in the order in which they appear in the source but this can be overrided by use of the <a href="http://docs.webplatform.org/wiki/html/attributes/tabIndex"><code>tabindex</code></a> property.  Setting an individual tab order for each element would very quickly become tedious so it's easier to use the same tab order for items within a section as the browser will move through them in source order.  Similar to BASIC line numbering it's best to start in blocks of 10 to allow later expansion - as shown in the example below.
 
 <pre class="code">

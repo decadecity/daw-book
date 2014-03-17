@@ -1,7 +1,7 @@
-## Progressive enhancement
+# Progressive enhancement
 What is Progressive enhancement?  We start with a solid foundation and enhance from there.
 
-### Elements of a web page
+## Elements of a web page
 
   1. HTML(Content)
   2. CSS (Presentation)

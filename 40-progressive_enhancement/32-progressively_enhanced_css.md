@@ -1,3 +1,5 @@
+# Progressively enhanced CSS
+
 Progressive Enhancement is a cornerstone of web development but when people talk about it they are normally talking about JavaScript, if CSS is included then it's normally in reference to cosmetic enhancements.  Here's how I extend this principle deeper into CSS and layer enhancements on a larger scale, taking advantage of the <abbr title="cascading">C</abbr> in CSS.
 
 ## Baseline presentation
