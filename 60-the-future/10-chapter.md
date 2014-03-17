@@ -25,7 +25,7 @@ I know it can seem a bit scary but once you accept that you don't have control o
 
 ## Future Friendly
 
-<a href="http://futurefriend.ly">futurefriend.ly</a> (not actually <a href="https://en.wikipedia.org/wiki/.ly">from Libya</a>)</p>
+<a href="http://futurefriend.ly">futurefriend.ly</a> (not actually <a href="https://en.wikipedia.org/wiki/.ly">from Libya</a>)
 
   1. Acknowledge and embrace unpredictability.
   2. Think and behave in a future-friendly way.

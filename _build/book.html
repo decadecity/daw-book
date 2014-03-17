@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Building for the Device Agnostic Web</title>
+    <link rel="stylesheet" href="book.css">
+  </head>
+  <body>
+
+<hr/>
+<p><code class="filename">10-definition/10-what.md</code></p>
+<h1>What is "The Device Agnostic Web"?</h1>
+<p>"Agnostic" is a big word - what does it mean?  It's faux Greek for "<a href="http://en.wiktionary.org/wiki/agnostic">not knowing</a>".</p>
+<p>So what is the "<strong>device agnostic web</strong>"?  It means we don't know what device will be used to interact with our site.</p>
+<p>But isn't that just "The Web", right?  No.  There are plenty of people out there who try to control which browsers interact with their sites:</p>
+<p><img src="../_img/carphone_warehouse.jpg" alt="WTF Mobile Web"/></p>
+<p>(This is a whole load of fails concentrated in one place.  The Carphone Warehouse aren't a warehouse and they don't sell carphones.  They sell mobile phones and this is the product page for a mobile phone when viewed on that self same mobile phone.)</p>
+<h2>How bad is this problem?</h2>
+<blockquote>
+<p>"45% of the Fortune 100 target smartphone users with dedicated mobile sites
+today, yet none of the companies studied fully comply with Google's mobile
+site requirements."</p>
+</blockquote>
+<p>Source: <a href="http://www.prweb.com/releases/PureOxygenLabs/MobileSEOAssessment/prweb10866624.htm">http://www.prweb.com/releases/PureOxygenLabs/MobileSEOAssessment/prweb10866624.htm</a> <span class="light">2013-06-25</span></p>
+<p>In a survey carried out in 2013 it was found that nearly half of the top 100 American companies are trying to control which browsers interact with their sites - again by trying to target mobile phones with a dedicated site - and none of them were getting it right as judged by <a href="https://developers.google.com/webmasters/smartphone-sites/details">Google's mobile site requirements</a>.  These guidelines aren't exactly rocket surgery - they basically say "don't break the web" [link to misc article] and yet people still can't manage it.</p>
+<h2>It's not just mobile phones</h2>
+<p>This problem is probably highest profile with mobile phones but there are an awful lot of things out there that are interacting with web sites.  We've got tablets, games consoles, smart televisions, screen readers, search engine spiders, glasses and even watches - and they vary greatly in capabilities. [expand]</p>
+<hr/>
+<p><code class="filename">10-definition/20-why.md</code></p>
+<h2>Why should we build for the device agnostic web?</h2>
+<hr/>
+<p><code class="filename">20-accessibility/10-chapter.md</code></p>
+<h1>Accessibility</h1>
+<p>People often think of accessibility as being for the disabled but, done right, it will make your site more accessible for all your users regardless of ability, device and conditions.</p>
+<p>Accessibility can seem daunting but if you get the basics right throughout the process then it doesn't have to be a big thing.  Accessibility only really becomes a problem when you try and retro-fit it to a project at the end.</p>
+<h2>Structure</h2>
+<ul>
+<li>Image <code>alt</code> attributes</li>
+<li>Form labels</li>
+<li>Tab index</li>
+<li>ARIA roles</li>
+</ul>
+<p>We already have semantic markup and that's a brilliant foundation but there are a few more things that, if you get them right in your markup, will enhance your site's usability for all users - not just those that rely on assistive technology.</p>
+<ul>
+<li>Images must have an alt attribute, even if that is null.</li>
+<li>Form inputs must have labels.  Some controls - like buttons - are implicity labelled but text boxes, radio buttons, checkboxes and the like need labels.</li>
+<li>Use the tabindex attribute to make sure that all your controls are accessible by keyboard navigation in a logical fashion. We'll come on to keyboard navigation later but it's not just for keyboards - the D-pad on game console controllers is normally mapped to this.  You can actually do quite a bit with the tabindex attribute so I suggest you look at the documentation.</li>
+<li>ARIA roles have the promise to give a significant boost to assistive technologies but unfortunately it seems support for them in assistive technologies is slow in arriving.  It's definitely worth finding out about them and putting them into your code but don't rely on them.</li>
+</ul>
+<h2>Presentation</h2>
+<ul>
+<li>Contrast - 4.5:1</li>
+<li>Focus highlight</li>
+<li>Fixed dimensions in <code>em</code></li>
+</ul>
+<p>As with HTML, accessibility in CSS isn't just for disabled users.  An accessible site will be easier for all users to use.</p>
+<p>Designers:  If you only remember one thing from this talk then remember this:  <strong>The minimum accessible <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef">contrast ratio</a> between foreground and background is 4.5:1</strong>.</p>
+<p>Don't think of this as a restriction, treat it as a challenge.  The best designers I've worked with have come up with some really creative solutions that are right on this limit.  And don't forget:  this contrast isn't just for blind people, it will make your site easy to read on monochrome screens, small screens, screens in sunlight, screens viewed at an angle - in fact most situations that aren't the nice big screen in ideal lighting you use to do your design work.</p>
+<p>Set a prominent focus highlight.  This is essential for keyboard navigation.  This doesn't look the best for mouse and touchscreen navigation but you can use JavaScript to remove this until you detect keyboard input - the important thing is to have a prominent highlight by default.</p>
+<p>Don't use pixels for fixed dimensions - use ems.  This allows users to change the base or minimum font sizes and your site won't fall apart.</p>
+<p>s</p>
+<hr/>
+<p><code class="filename">20-accessibility/20-contrast-ratio.md</code></p>
+<h1>Understanding contrast ratio</h1>
+<p>Insufficient contrast ratio is one of the most common accessibility issues with websites and this may be due to a lack of understanding of the concerns it addresses.</p>
+<h2>What is contrast ratio?</h2>
+<p>The colour contrast ratio of two colours is <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef"> defined by the W3C in WCAG2.0</a> as the ratio of the relative luminescence of the foreground and background colours. This can range from a minimum of 1 (foreground and background colours are the same) to a maximum of 21 (black on white).</p>
+<p>For compliance with WCAG2.0 AA text must have a contrast ratio of 4.5:1. There is a lower ratio required for large text (3:1) but, as large text is defined in terms of physical size, it is not possible to guarantee that text will be rendered at that size on any given device so keeping all text complaint with the 4.5:1 ratio is the best approach.</p>
+<h2>Why is contrast ratio important?</h2>
+<p>Whilst the use of colour is an important part of visual design there are a number of situations where users will not be able to distinguish between different colours. This doesn't just affect those who are colour blind, it is also an issue for monochrome displays, displays with poor colour reproduction, and displays viewed at an angle or in unfavourable lighting conditions.</p>
+<p>In these situations where the hue of a colour cannot be reliably determined it is the luminosity that becomes the defining feature. If the contrast ratio of two colours is high (e.g. black on white) then, even in poor conditions, it is easy to distinguish between them. However, if the contrast ratio is too low (e.g. light blue on white) then it can be hard to distinguish between them, even in good conditions.</p>
+<p>Whilst poor conditions or visual impairment are hard to reliably simulate, we can illustrate the effects of contrast ratio by turning colours into their greyscale equivalent.</p>
+<h2>Examples</h2>
+<p><i>Note: In these examples I am using <a href="http://jsbin.com/fohuy/6">a greyscale conversion based on the W3C's definition of luminescence</a> which I have chosen for illustrative purposes. There are <a href="http://dcgi.felk.cvut.cz/home/cadikm/color_to_gray_evaluation/">many methods of greyscale conversion</a> and a given monochrome display may not necessarily show these colours as the same grey. Added to which, environmental factors such as viewing angle and lighting conditions will also have an impact on how colours are perceived. Additionally there is a range in biological ability to perceive colours which is even harder to categorise. As a consequence, this choice of colours is not intended to be representative of a specific situation but to illustrate what can happen in situations where insufficient colour contrast is used.</i></p>
+<aside>Apologies to those with difficulty perceiving colours or viewing this in monochrome, these demonstrations necessarily use colour.</aside>
+
+<h3>No contrast</h3>
+<p>In these examples a red and green with the same luminosity have been used.  Whilst these colours don't look particularly appealing they can still be distinguished by someone with normal colour perception in reasonable viewing conditions.</p>
+<h4>Contrast between foreground and background</h4>
+<p>This is the most common case for the importance of contrast, if the foreground and background don't have sufficient contrast they can be indistinguishable.</p>
+<p>In this case we have some text that is green on red: <span style="background-color:#ff0000;color:#009400">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+<p>When reduced to greyscale the text is grey on grey: <span style="background-color:#7f7f7f;color:#7f7f7f">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+<p>Another example of this is a button: <button style="background-color:#ff0000;color:#009400">Activate!</button> which again becomes a grey box when reduced to greyscale: <button style="background-color:#7f7f7f;color:#7f7f7f">Activate!</button></p>
+<h4>Colour used to convey meaning</h4>
+
+<p>Whilst relying on colour to convey meaning has wider accessibility impacts than contrast, it is still a good example of why contrast is important.</p>
+<p>In this case we have a status indicator that shows red or green: <span style="color:#ff0000">&#9679;</span> <span style="color:#009400">&#9679;</span></p>
+<p>Reducing this to a greyscale representation there is no difference between the two states: <span style="color:#7f7f7f">&#9679;</span> <span style="color:#7f7f7f">&#9679;</span></p>
+<h3>Acceptable contrast</h3>
+<p>Here we repeat the examples above but this time a red and green with a contrast ratio better than 4.5:1 have been used.</p>
+<h4>Contrast between foreground and background</h4>
+<p>We still have text that is green on red: <span style="background-color:#c50000;color:#00ff00">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+<p>When reduced to greyscale the text is still grey on grey but the contrast is sufficent that they are still readable: <span style="background-color:#616161;color:#dcdcdc">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+<p>Similarly applied to a button: <button style="background-color:#c50000;color:#00ff00">Activate!</button> which is still readable when reduced to greyscale: <button style="background-color:#616161;color:#dcdcdc">Activate!</button></p>
+<h4>Colour used to convey meaning</h4>
+<p>Whilst using colour to convey meaning is not a good idea as the purpose of the greyscale indicators is still not apparent, at least with sufficient contrast the two states can now be distinguished from each other.</p>
+<p>Our status indicator still shows red or green: <span style="color:#c50000">&#9679;</span> <span style="color:#00ff00">&#9679;</span></p>
+<p>The greyscale representation of these still doesn't communicate the meaning but does show they are different: <span style="color:#616161">&#9679;</span> <span style="color:#dcdcdc">&#9679;</span></p>
+<h2>Links</h2>
+<p>A similar principle applies to links. The convention on the web is to underline hyperlinks and this is what users have come to expect. By using colour - even when combined with typographical differentiation - to distinguish links without using an underline you increase the risk that they will not be recognised.</p>
+<p>We can demonstrate this using some of the colours above:</p>
+<p>In this example we use colour and italic text to indicate a link: <span style="color:#ff0000">This is a passage of text that contains <a href="#" style="color:#009400;text-decoration:none;font-style:italic">a link</a> within it.</span></p>
+<p>When reduced to greyscale the link now just looks like italicised text: <span style="color:#7f7f7f">This is a passage of text that contains <a href="#" style="color:#7f7f7f;text-decoration:none;font-style:italic">a link</a> within it.</span></p>
+<p>Compare this to the same example with the addition of an underline to indicate a link: <span style="color:#ff0000">This is a passage of text that contains <a href="#" style="color:#009400;text-decoration:underline;font-style:italic">a link</a> within it.</span></p>
+<p>When reduced to greyscale the link is still obvious within the context of a web page: <span style="color:#7f7f7f">This is a passage of text that contains <a href="#" style="color:#7f7f7f;text-decoration:underline;font-style:italic">a link</a> within it.</span></p>
+<h2>Conclusion</h2>
+<p>Whilst the examples here use a contrived set of colours they serve to indicate the importance of contrast ratios and conventions in making content accessible to all users on any device.</p>
+<hr/>
+<p><code class="filename">30-performance/10-chapter.md</code></p>
+<h1>Performance</h1>
+<ul>
+<li>Set a performance budget</li>
+<li>Use objective measurements (<strong>not</strong> times)</li>
+<li>Defer non-essential items (e.g. analytics)</li>
+<li>Validate using real user monitoring (RUM)</li>
+</ul>
+<p>There are plenty of studies that show that the faster your site is the more people will engage with it.  Speed is also a factor in Google rankings and, thanks to a server configuration issue, I've seen that in action.</p>
+<p>You should set a performance budget for your site to prevent it getting too slow as you add more without taking anything away.  Sticking to a budget means that when you want to add something new you have to take something out and that forces you to think about how much value the new feature really adds.</p>
+<p>Whilst it's tempting to think of your budget in terms of time - after all that's what performance is all about - it's not practical to accurately measure time when you are building a site.  You need to define your budget in objective measurements that contribute the page speed.  The key metrics you should be focusing on are:</p>
+<ul>
+<li>Number of HTTP requests</li>
+<li>Total page weight</li>
+<li>Percentage of visual rendering complete (<a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">speed index</a>)</li>
+</ul>
+<p>You can make some space in your budget by deferring non-essential items.  And by essential I mean essential to your users.  Analytics is a classic example of this - whilst you might conciser them essential, your users don't care.  When was the last time you saw a slow website and thought: "I'm happy to wait for this if it means they get good analytics."</p>
+<p>Whilst I did say don't set your budget using a time measurement, it's a good idea to measure how fast pages are actually loading for your users - this is known as <a href="http://en.wikipedia.org/wiki/Real_user_monitoring">real user monitoring</a>.  With enough data you can get a meaningful average and you can use this to ensure that changes you make to the site aren't having a negative effect on your users' load times.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/10-what.md</code></p>
+<h1>Progressive enhancement</h1>
+<p>What is Progressive enhancement?  We start with a solid foundation and enhance from there.</p>
+<h2>Elements of a web page</h2>
+<ol>
+<li>HTML(Content)</li>
+<li>CSS (Presentation)</li>
+<li>JavaScript (Behaviour)</li>
+</ol>
+<p>The traditional view of progressive enhancement is that you start with the HTML for the content, add CSS for the presentation and finally add on JavaScript for the behaviour.</p>
+<p>This separation of concerns should, of course, be the the foundation for any site but we can do more:  We can also apply progressive enhancement <strong>within</strong> each of these elements.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/20-html.md</code></p>
+<h1>HTML</h1>
+<p>The foundation of any site is the structure of the HTML but, even with a mobile first approach, all too often not enough consideration is given to this aspect of the process. Using an extensible base template is a good idea for a number of reasons but some thought should be given to how much of the site chrome (headings, footers, menus etc.) is fixed in the template.</p>
+<p>Look at the use cases for your site, look at user journeys, look at link tracking in analytics and conduct user testing to find out how your users actually use your site. This should inform the information hierarchy for each page which will form the linear order of the content on narrow screens - with more space you can float and re-position content to form a richer and more consistent layout but on a small screen you have to have the order right in the markup.</p>
+<p>You should pay most attention to the items you would not normally focus on: What is the minimum you can have in the header? Is your top level menu really the most important item in your information hierarchy? Do you even need to show the menus before the content on some pages?</p>
+<h2>HTML</h2>
+<ul>
+<li>Clean</li>
+<li>Semantic</li>
+</ul>
+<p>The core attributes of our HTML are that it should be clean and semantic.  Getting this right gives us the best chance of it working everywhere.</p>
+<p>Let's look at these attributes in a bit more detail:</p>
+<h3>Clean</h3>
+<ul>
+<li>Correctly nest tags</li>
+<li>Close <em>all</em> tags (e.g. <code>&lt;br/&gt;</code>)</li>
+<li>Quote attributes</li>
+<li>Well formed XML</li>
+</ul>
+<p>Previously I would have said 'valid' rather than 'clean' here, however, HTML 5's validation rules are lax enough that it's not much use as a guide for where we need to be.</p>
+<p>What we're looking for is robust markup that's not going to cause problems for any browser's parser.</p>
+<p>An advantage of HTML5 is that progressive enhancement is built it - browsers will ignore things they don't understand.  This means that, providing we get the basics right, we can safely use more modern markup as long as we don't rely on it.</p>
+<p>Correctly nesting tags should be something you are doing anyway - whilst you might be able to get away with overlapping tags in some browsers, you don't know how reliably an unknown browser will react.</p>
+<p>Close all tags - even those you don't strictly have to like line breaks, meta tags and other singleton tags.  Yes, you can get away with not doing it but if you do it you don't have to "get away with it" - it's just going to work.</p>
+<p>The same goes for quoting attributes - if you quote them, it's going to work.</p>
+<p>What we're building up to here is that your HTML should be well formed XML.  Now that probably sounds like overkill especially as nobody really likes XML that much. The point here is that if it's well formed XML then the browser's parser doesn't have to guess about anything when it's building the DOM tree, you're not going to be caught out by how an unknown browser handles HTML it doesn't fully understand.</p>
+<h3>Semantic</h3>
+<ul>
+<li>Headings</li>
+<li>Paragraphs</li>
+<li>Lists</li>
+<li>Anchors</li>
+<li>New HTML5 elements</li>
+</ul>
+<p>I'm not going to get into the details of exactly what element should be used to markup what content, that would take forever, everyone would disagree with me and we'd all be right.</p>
+<p>However, headings, paragraphs, lists and anchors have been around since <a href="http://www.w3.org/MarkUp/draft-ietf-iiir-html-01.txt">the start of HTML</a>.  If you make sure your content is correctly marked up using these then it really should work in any browser ever made.</p>
+<p>The new HTML5 elements - and in particular the sectioning elements such as header, footer and the like - are fine to use but don't rely on them.  The definitions aren't all stable and I'm not sure if there's really much out there that actually uses them.</p>
+<p>The other thing to bear in mind is that older browsers - and not just IE - might not recognise them.  My recommendation is to put them in to mark sections but then put <code>div</code>s inside them to actually hang styles and functionality from.  [see below]</p>
+<p>Try not to get analysis paralysis with figuring out the correct way to semantically markup content.  Start with the basics to give you a good foundation and think about what the content is supposed to be rather than how it is supposed to look.  Making a few dodgy decisions here and there is much better than not even attempting it.</p>
+<p>If you can change the layout of your site purely by changing the CSS and not touching the markup then it's a good indication that it's semantic.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/21-html5_elements.md</code></p>
+<h1>HTML5 Elements for Legacy Browsers</h1>
+<p>Some legacy browsers, and in particular Internet Explorer prior to version 9, do not support new HTML elements such as <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code>.  Here I outline a few ways of dealing with this that I have used on different projects.</p>
+<h2>Change the Doctype</h2>
+<p>As valid HTML4 is also valid HTML5 changing the doctype shouldn't have any adverse effects for the majority of sites and, unless there is a very good technical reason not to, changing this is an easy first step towards making a site ready for HTML5 even if you aren't using any of the new elements.  If you are using the new elements then changing the doctype is a must.</p>
+<h2>Don't use HTML5 elements</h2>
+<p>Denial is the easiest short term way of dealing with new HTML5 elements but not a <a href="http://futurefriend.ly/">future friendly</a> approach.  Whilst it is true that current technology doesn't make much use of the semantics of the new elements it is only reasonable to expect that to change so, whilst this will work for now, you aren't setting yourself up for future success.</p>
+<h2>Use HTML5 elements with no fall back</h2>
+<p>This is a viable approach if you know that all your users will be using a browser that supports HTML5 elements.  This isn't as unreasonable as it sounds if you are building an application with <a href="http://phonegap.com/">PhoneGap</a> or <a href="http://awesomium.com/">Awesomium</a>.</p>
+<p>This is also a viable approach if you know that the significant majority of your users will be using a browser that supports HTML5 elements and you don't care about the minority that don't.  However, this is a rather irresponsible attitude and not encouraged.</p>
+<h2>Use HTML5 elements and the HTML5 shiv</h2>
+<p>The <a href="https://github.com/aFarkas/html5shiv/">HTML5 shiv</a> is the most often cited way to get support for HTML5 elements in older versions of <abbr title="Internet Explorer">IE</abbr> and is well tested and proven.  The main downside of this is that it requires JavaScript to be enabled, without <abbr title="JavaScript">JS</abbr> you are back to the same situation as using HTML5 elements with no fall back.  This is an acceptable approach for some projects but for those that must work with <abbr title="JavaScript">JS</abbr> disabled for accessibility, or other policy reasons, it's not viable.</p>
+<h2>Use HTML5 elements with a class based fall back</h2>
+<p>This approach has the drawback of adding extra, semantically irrelevant, mark up to the page but has the advantage of maximum compatibility across all browsers.  To achieve this you would add an extra <code>&lt;div&gt;;</code> either as the parent or child of the HTML5 element and add a class that matches the HTML5 element:</p>
+<pre class="code"><code>&lt;section&gt;
+  &lt;div class="section"&gt;
+    &hellip;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+<p>CSS styles are then based on the class (<code>.section</code>) rather than the element (<code>section</code>).  This has the advantage of being compatible with all browsers whilst still offering the semantics of the new elements.</p>
+<h2>Summary</h2>
+<p>There is no right answer to which approach you should go with and there may be a case for mixing different approaches.  The approach you chose should be based on a through understanding of the project on which you are working including the browsers your users are actually using and plenty of testing.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/30-css.md</code></p>
+<h1>CSS</h1>
+<ul>
+<li>Baseline presentation</li>
+<li>Media queries</li>
+<li>Interaction optimisations</li>
+</ul>
+<p>Like HTML, CSS has progressive enhancement built in - browsers will ignore things they don't understand.  Again, providing we get the basics right, we can use advanced features provided we don't rely on them.</p>
+<h2>Baseline presentation</h2>
+<ul>
+<li>Colours, typography, backgrounds, borders, etc.</li>
+<li>Linear layout - no floats.</li>
+<li>Basic interactions - no hover.</li>
+</ul>
+<p>Your baseline presentation is the core elements of the CSS.  It should contain the basic style elements of your site such as the colours, typography, backgrounds, borders and the like.</p>
+<p>The baseline layout should be completely linear with everything 100% width.  Don't use any floats at this stage as some legacy browsers don't handle floats and other layout styles very reliably.</p>
+<p>Don't add any interaction enhancements at this point - specifically no hovers.</p>
+<p>The site's not going to look very inspiring at this point, it's just one long list of branded content - not much different to the unstyled HTML.  However, this is exactly what we want - it's a baseline presentation that any browser with CSS support will be able to handle.</p>
+<h2>Media Queries</h2>
+<ul>
+<li>Layout solution</li>
+<li>Media query support: <code>@media only all</code></li>
+<li>Not just width</li>
+</ul>
+<p>It's important to remember that media queries and responsive design are not a silver bullet to cross device compatibility.  They are a layout solution.</p>
+<p>Layout is now probably the best understood section of building device agnostic web sites thanks to Responsive Design. What often gets lost is that Responsive Design is a layout solution - it is not a device solution. It's very tempting to look at certain screen widths and label them as devices: 320 is mobile, 768 is tablet and 1024 is desktop. Screen size to device class mapping was never that really a good assumption but as more and more form factors are coming on to the market it's becoming harmful.</p>
+<p>We can detect for media query support with <code>@media only all</code>.</p>
+<p>This is essentially our "cutting the mustard" test for good CSS support so, as we have a reliable baseline, we can start applying layout CSS and be fairly confident that it will be supported.</p>
+<p>Don't forget that there are more media queries than just width.  For example height can be very useful to compress vertical whitespace for small screens in landscape orientation - such as Google Glass.</p>
+<h2>Interaction optimisations</h2>
+<p>As different screen sizes require different layout requirements, different interface methods require different interface requirements.</p>
+<ul>
+<li>Sequential (keyboard)</li>
+<li>Direct (touch)</li>
+<li>Location aware (hover)</li>
+<li>Ambient / Passive (sensors)</li>
+</ul>
+<p>There is a hierarchy of interactions.  Sequential navigation where you move from one item to the next in sequence is the baseline, this is normally keyboard navigation but that also includes things like game controllers.  The key to sequential interaction is keeping the user informed of where the current focus of interaction is.</p>
+<p>Direct interaction uses the same interaction points as sequential but in this case they will be activated in isolation.  This is exemplified by touch interactions and is probably the easiest and mode of interaction to deal with.</p>
+<p>Location aware interactions know where the point of interaction is before it is activated.  The mouse is the main example of this and it allows us to use hover states.  However, as this is further up the hierarchy you can't use this to present information not available to sequential and direct interactions.</p>
+<p>At the bottom of the hierarchy we have ambient or passive interactions such as information from sensors such as location and network.  This is still a very new area and should be used with caution as they don't express a conscious desire for interaction.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/32-progressively_enhanced_css.md</code></p>
+<h1>Progressively enhanced CSS</h1>
+<p>Progressive Enhancement is a cornerstone of web development but when people talk about it they are normally talking about JavaScript, if CSS is included then it's normally in reference to cosmetic enhancements.  Here's how I extend this principle deeper into CSS and layer enhancements on a larger scale, taking advantage of the <abbr title="cascading">C</abbr> in CSS.</p>
+<h2>Baseline presentation</h2>
+<p>Start with a baseline presentation as the main body of your CSS file (i.e. no media queries).  This should include resets, colours, typography and core elements of the site.  At this stage the layout should be minimal and strictly linear - however tempted you might be, <em>do not</em> include floats or positioning at this stage.  This is the layout that older browsers that do not support media queries will receive, this is sometimes referred to by the maxim: "The absence of media queries is the first media query."</p>
+<h2>Narrow Screen</h2>
+<p>This is where we have our first media query and is used to enhance the presentation for browsers that support media queries. We use a media query of <code class="code">@media <b>only</b> all</code> to target these browsers.</p>
+<p>As we now know the browser has a reasonably modern CSS engine and can be relied on to handle most layout instructions corrects we can now start using floats and positioning to move away from the strictly linear baseline presentation.  This is what you would typically think of as your first mobile layout for smartphones.</p>
+<h2>Layered Media Queries</h2>
+<p>I'm not going to say too much about this as it is one of the cornerstones of responsive design - use the code within the media queries to build out your layouts to adapt to screen size or other signal.  Pay particular attention to how declarations override each other and pay attention to the 'reset' value of CSS properties as they differ.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/33-interactions.md</code></p>
+<h1>Interactions</h1>
+<h2>Touch</h2>
+<p>The touch interface should be the baseline for the UI as it gives us the best baseline for enhancement - it is easier to build up from the UI built for touch than to adapt a more traditional pointer interface to be suitable for touch, particularly as touch devices tend to translate touch events to pointer events anyway.</p>
+<h3>Touch targets</h3>
+<p>The first key to a touch UI is targets that are easy to pick out with a finger, given the variety of device pixel densities don't get too hung up on exact physical sizes but - as ever - make sure you test on a representative sample of devices to ensure the experience is acceptable.</p>
+<h2>Hover states</h2>
+<p>The second key to a touch interface is to avoid hover states, everything should be driven from touch/ click events.  Whilst many devices will trigger the hover state on a touch event it's not universal and the biggest problem with hover states comes when you overload items so they have different actions on hover and click - on touch devices the two events are indistinguishable.</p>
+<h2>Keyboard</h2>
+<p>When navigating using the keyboard the important thing to remember is that it is sequential, you move from one element to the next in a set order and you need to know where you are in the sequence when navigating.</p>
+<h3>Tabindex</h3>
+<p>By default browsers will move through focusable elements in the order in which they appear in the source but this can be overrided by use of the <a href="http://docs.webplatform.org/wiki/html/attributes/tabIndex"><code>tabindex</code></a> property.  Setting an individual tab order for each element would very quickly become tedious so it's easier to use the same tab order for items within a section as the browser will move through them in source order.  Similar to BASIC line numbering it's best to start in blocks of 10 to allow later expansion - as shown in the example below.</p>
+<pre class="code">
+  &lt;a href="#"&gt;Title&lt;/a&gt;
+  &lt;ol&gt;
+    &lt;li tabindex="10"&gt;Item 1&lt;/li&gt;
+    &lt;li tabindex="10"&gt;Item 2&lt;/li&gt;
+    &lt;li tabindex="10"&gt;Item 3&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;button&gt;Click me!&lt;/button&gt;
+  &lt;ol&gt;
+    &lt;li tabindex="20"&gt;Item 4&lt;/li&gt;
+    &lt;li tabindex="20"&gt;Item 5&lt;/li&gt;
+    &lt;li tabindex="20"&gt;Item 6&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;a href="#"&gt;Footer&lt;/a&gt;
+</pre>
+
+<p>Navigating this using the keyboard would start at "Item 1" (first item with a defined <code>tabindex</code>, lowest defined <code>tabindex</code> value, first item in mark up with lowest <code>tabindex</code>), move through "Item 2" and "Item 3" before moving on to "Item 4" (as it is the first item with the next lowest defined <code>tabindex</code>), it will then move through "Item 5" and "Item 6" before returning to the "Title" link (as it is the first item in the mark up that doesn't have a <code>tabindex</code>), the "Click me!" button and finally the "Footer" link.</p>
+<h4 id="focus">Focus</h4>
+
+<p>When navigating sequentially it is important to give clear feedback showing the current position.  This can be easily achieved with the <a href="http://docs.webplatform.org/wiki/css/selectors/pseudo-classes/:focus">CSS <code>:focus</code> pseudo-class</a> to define a clear visual indicator such as a contrasting outline:</p>
+<pre class="code">
+*:focus {
+  outline: 1px solid orange;
+}
+</pre>
+
+<p>The drawback of this is that it will show a highly visible outline on items when navigating using other methods which can be distracting.  If we set this as the default we can enhance the experience using JavaScript.</p>
+<pre class="code"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script&gt;
+// This assumes we are using a modern browser - you'll need to <a href="/blog/2014/03/06/cutting-the-mustard">cut the mustard</a> to use this reliably.
+document.querySelector('html').classList.add('js');
+    &lt;/script&gt;
+    &lt;style&gt;
+*:focus {
+  outline: 1px solid orange;
+}
+.js *:focus {
+  outline-width: 0px;
+}
+.keyboard *:focus {
+  outline-width: 1px;
+}
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;script&gt;
+var addKeyboardHook = function () {
+  document.querySelector('html').classList.add('keyboard');
+  document.removeEventListener('keydown', addKeyboardHook);
+};
+document.addEventListener('keydown', addKeyboardHook);
+  &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>In this example we set up the obvious focus outline then use a class hook added by JavaScript to hide it.  We then listen for a <code>keydown</code> event to add in another class hook that will make the outline visible again.  This approach is heavy handed in that it takes any <code>keydown</code> event to re-show the outline, I've not found it to be a problem but you might want to do something more nuanced.</p>
+<h3>Pointer</h3>
+<p>The mouse pointer offers the finest level of control, down to individual pixels, and allows for a hover or mouseover state that is clearly distinct from a click or activation state.  As the majority of interactions on the web have historically been mouse driven this has lead to frequent use of hover states in interfaces for a number of different tasks such as menus and tooltips.  Whilst this is clearly a useful interaction to harness it is no longer possible to rely solely on this for core functionality and it should be viewed as enhancement.  Whilst we can't currently explicitly detect pointer interfaces the best we can do is to say that if touch event support is not present then we have a pointer interface.</p>
+<pre class="code">
+if (!('ontouchstart' in window)) {
+  document.getElementsByTagName('html')[0].className += ' pointer';
+}
+</pre>
+
+<p>However, this is not ideal as some touch devices, such as Windows Phone 7, do not show support for touch and we want our default to be touch not pointer.</p>
+<p>This is an ideal candidate for mobile first, server side, user agent detection backed up by positive client side feature detection.  In this scenario we add a class of <code>pointer</code> only when we positively identify a desktop browser user agent on the server and then remove it client side when we detect touch event support.</p>
+<pre class="code">
+&lt;!DOCTYPE html&gt;
+&lt;html class="pointer"&gt;&lt;!-- Class of pointer has been added by server.--&gt;
+  &lt;head&gt;
+  &lt;script&gt;
+// We are using an immediately invoked, wrapped, anonymous function to keep the variable out of the global scope.
+(function () {
+  var html = document.getElementsByTagName('html')[0];
+  if (html.className.search('pointer') &gt; -1 &amp;&amp; ('ontouchstart' in window || (typeof navigator.msMaxTouchPoints !== 'undefined' &amp;&amp; navigator.msMaxTouchPoints &gt; 0))) {
+    html.className = html.className.replace('pointer', '');
+  }
+}());
+  &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body/&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Once we have the hook of a pointer class it can be used to add in hover states and other pointer specific UI customisations.</p>
+<pre class="code">
+nav li li {
+  display: none;
+}
+
+.pointer nav li:hover li {
+  display: block;
+}
+</pre>
+
+<p>Whilst the <code>.pointer</code> hook might not seem necessary for <code>:hover</code> states it clearly isolates them and stops touch devices triggering them.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/40-javascript.md</code></p>
+<h1>JavaScript</h1>
+<ul>
+<li>No JavaScript</li>
+<li>Feature detection</li>
+<li>Cutting the mustard</li>
+</ul>
+<p>Whilst JavaScript used to be used to provide small dynamic enhancements it's increasingly used to provide core functionality.  Unlike HTML and CSS, JavaScript is not fault tolerant.  If you include something in JavaScript that the browser does not understand it will come to a stop.  This means we need more robust techniques for enhancement.</p>
+<h2>No JavaScript</h2>
+<ul>
+<li>Core content is accessible</li>
+<li>Use JS to add a CSS hook</li>
+<li>Use CSS hook to set initial presentation for enhanced functionality</li>
+</ul>
+<p>Whilst it's easy to assume that JavaScript is everywhere these days, JavaScript support varies significantly between browsers and, as we did with HTML and CSS, we're going to be starting with a safe baseline and enhancing.  With JavaScript the safest baseline is when it's not present.</p>
+<p>You don't have to have all your functionality replicated when JavaScript is disabled but your core content and any functionality required to access that should be available.</p>
+<p>Before you declare any CSS in your page use some inline JavaScript to add a class to the HTML element.  This is really simple and can be done in one line.  Once you have the CSS hook you can then set the initial presentation for enhanced functionality - such as hiding everything in an expandable menu.</p>
+<p>What you should be aiming for is being able to complete the basics - for example adding a product to a shopping cart and then checking out. This is going to be a lot more clunky than with JavaScript enabled and there's no reason to spend too much time optimising this.  Now, when (not if) when JavaScript breaks or otherwise isn't available, your users are still able to use your site.</p>
+<h2>Feature Detection</h2>
+<ul>
+<li>Enhance functionality using feature if present</li>
+<li>Polyfill missing feature</li>
+<li>Fall back on non JavaScript functionality</li>
+</ul>
+<p>Whilst browsers will ignore HTML or CSS they don't recognise, if you try to use JavaScript they don't recognise they'll throw an error.  To avoid this we need to detect if a feature is supported before using it.</p>
+<p>The basic formulation for feature detection is to check for the presence of the feature in it's container - frequently <code>document</code> or <code>window</code>.  There are exceptions and it's different for HTML features but the idea is the same - you are detecting whether the feature you want to use is supported in the browser.</p>
+<p>If you know the feature is supported you can then enhance using that feature.  If the feature isn't supported then you can either pollyfill to emulate the missing feature or fall back to the non JavaScript functionality.</p>
+<p><a href="http://remysharp.com/2010/10/08/what-is-a-polyfill/">Pollyfilling functionality</a> is tempting so it's very easy to end up with a lot of code doing this.  This code can be hard to maintain and test so, for each pollyfill, you should thoroughly examine if the feature you want to use really is important enough to warrant that investment of time.</p>
+<p>So if we're not pollyfilling this missing JavaScript functionality what are we going to do?  Because we have started with a baseline that  core functionality is available without JavaScript we don't have to do anything - the cor</p>
+<h2>Cutting the mustard</h2>
+<ul>
+<li>Feature detect a minimum level of support for enhancements</li>
+<li>Only request JavaScript when supported</li>
+<li>Fall back on non JavaScript functionality</li>
+</ul>
+<p>"Cutting the mustard" is a term coined by the BBC responsive team.  The principle here is that you feature detect for a set of minimum requirements and only request and load the JavaScript when these requirements are met.  This has two advantages:</p>
+<ul>
+<li>We can use more advanced JavaScript features knowing that they will be supported.</li>
+<li>Devices that won't run our JavaScript won't even waste time downloading it.</li>
+</ul>
+<p>This is a really useful technique for dealing with older browsers that have limited JavaScript support, it means you're not having to deal with a lot of compatibility problems and, because your core functionality works without JavaScript, users of these older browsers aren't missing out.</p>
+<h2>Non JavaScript functionality</h2>
+<p>The common perception of providing non JavaScript functionality is that it's for people who have JavaScript disabled in their browsers and <a href="http://digital.cabinetoffice.gov.uk/2013/10/21/how-many-people-are-missing-out-on-javascript-enhancement/">there aren't many of them</a> so why bother?</p>
+<p>As we've seen, having your core functionality available without JavaScript is important for more practical reasons:  It enables your users to continue to use your site when something is broken, or missing either by accident or design.</p>
+<p>Paradoxically, by providing support when JavaScript isn't present it allows you to provide better support when it is present.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/41-fault_tolerance.md</code></p>
+<h1>Progressive enhancement for fault tolerance</h1>
+<p>I advocate that, to provide a solid baseline, the core functionality of your site should be available without relying on JavaScript.  The main driver behind this is fault tolerance and reliability rather than catering for the small number of users that don't have JavaScript enabled.</p>
+<p>If the purpose of your site it to take people's money so you can get paid then you want to be able to take their money without using JavaScript.  When you add on JavaScript you can be much more efficient at taking people's money.  JavaScript is fragile, there are lots of ways in which it will break and you won't have thought of most of them.  If you aren't relying on JavaScript to take people's money then when (not if) JavaScript isn't working then you are still getting paid.</p>
+<p>I'm not suggesting that you try and replicate all your JavaScript functionality when it's disabled, above all that's just not practical.  What you should be aiming for is being able to complete the basics - for example adding a product to a shopping cart and then checking out.  This is necessarily going to be clunky as judged by current standards and I suggest you don't spend much time on optimising this process.  What you are going to be spending the majority of your time and effort on is the enhanced JavaScript version as that is how the majority of your customers will be experiencing your site.</p>
+<p>An additional benefit to this approach is that, as your core functionality is always available without JavaScript, you can use more advanced JavaScript features only when they are supported safe in the knowledge that you site will still work (albeit not as well) when they're not.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/42-coping_without_javascript.md</code></p>
+<h1>Coping without JavaScript</h1>
+<p>JavaScript is taking an increasingly important role in modern web sites to the point where sites that rely entirely on JavaScript are no longer uncommon.  Whilst it is tempting to assume ubiquitous and up-to-date JavaScript support when building sites it is important to conciser the experience for browsers that either have limited or no JavaScript support.  This article outlines approaches to provide content in these situations and an practical example of how to employ them.</p>
+<h2><code>&lt;noscript&gt;</code></h2>
+<p>The <code>&lt;noscript&gt;</code> tag is an obvious way to deal with a lack of JavaScript support and this is certainly the way to deal with providing alternatives to functionality but it is not the most reliable way to deal with content.  The disadvantage of using the <code>&lt;noscript&gt;</code> tag for content is the lack of control we have over the display, it is entirely controlled by the browser and, according to some reports, may not be reliable in all browsers.</p>
+<h2>CSS</h2>
+<p>If we want a reliable method of dealing with content then we need to use CSS to control the visibility.  The simplest, and most fault tolerant, way to do this is to style the content for the JavaScript disabled scenario and then use JavaScript to add a class to the <code>&lt;html&gt;</code> element to provide additional styling.</p>
+<h2>Cutting The Mustard</h2>
+<p>Cutting the mustard is a phrase <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard">coined by the BBC</a> to describe testing for browsers that meet a certain minimum standard and, only when this standard is met, do we load the main JavaScript.  Taking a similar approach to detecting JavaScript above, we also use this test to add a class to the <code>&lt;html&gt;</code> element to allow us to style elements.</p>
+<h2>SEO</h2>
+<p>When adding content in this manner it is important to conciser the SEO implications, you should try and place any content messages towards the bottom of the page if at all possible.  If the warning messages are the first thing on the page then they may appear as the snippet in Google search results.</p>
+<h2>Bringing it all together</h2>
+<p>Shown below is an outline of an HTML page that includes practical examples of the various techniques discussed above.  You can also see the CSS techniques in action in this <a href="/static/html/pin_producer/">mini web-thing</a> (<a href="https://github.com/decadecity/pin_producer">source on GitHub</a>).</p>
+<h3>Sample HTML page</h3>
+<p><pre class="code"><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+   &lt;!-- Add the CSS hook for JavaScript support. --&gt;
+   &lt;script&gt;document.getElementsByTagName('html')[0].className += ' js';&lt;/script&gt;
+   &lt;!-- Styling to show/hide content messages. --&gt;
+   &lt;style&gt;
+   .js .js-hide {
+     display: none;
+   }
+   .legacy-warning {
+     display: none;
+   }
+   .legacy .legacy-warning {
+     display: block;
+   }
+   &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+   &lt;!-- Content messages in the main body. --&gt;
+   &lt;div class="legacy-warning"&gt;
+     &lt;p&gt;Sorry but your browser doesn't support the technologies that this application needs to run.&lt;/p&gt;
+   &lt;/div&gt;
+   &lt;div class="js-hide"&gt;
+     &lt;p&gt;Sorry but this application requires JavaScript to be enabled in order to run.&lt;/p&gt;
+   &lt;/div&gt;
+   &lt;!-- Load the main JavaScript if the browser meets our minimum level. --&gt;
+   &lt;script&gt;
+    if ('querySelector' in document &amp;&amp; 'addEventListener' in window &amp;&amp; 'localStorage' in window) {
+      document.getElementsByTagName('html')[0].className += ' ctm'; // Set CSS hook.
+      // Initialise JS functionality
+    } else {
+      // Add a CSS hook to enable display of content messages.
+      document.getElementsByTagName('html')[0].className += ' legacy';
+    }
+   &lt;/script&gt;
+   &lt;noscript&gt;
+     &lt;!-- Fallbacks for functionality. --&gt;
+   &lt;/noscript&gt;
+  &lt;/body&gt;
+&lt;/head&gt;</code></pre></p>
+<h2>Conclusion</h2>
+<ul>
+<li>Use <code>&lt;noscript&gt;</code> for functionality (such as analytics).</li>
+<li>Use CSS hooks to provide alternative content.</li>
+<li>Keep SEO implications in mind.</li>
+</ul>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/43-cutting_the_mustard.md</code></p>
+<h1>Cutting the mustard</h1>
+<p>The phrase "cutting the mustard" was <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard">coined by the BBC responsive news team</a> to describe a technique of setting a minimum standard that a browser must meet in order to get an enhanced experience.  Browsers that meet this minimum standard are said to cut the mustard.</p>
+<h2>Progressive enhancement</h2>
+<p>Cutting the mustard is a progressive enhancement technique that relies on a baseline experience that works in all browsers.  As its name suggests, the baseline experience is basic - it only uses features that are well supported in even the oldest browsers: HTML and basic CSS with no reliance on JavaScript for core functionality.</p>
+<h2>JavaScript</h2>
+<p>The principle behind the cutting the mustard test for JavaScript is that no JavaScript is loaded unless a minimum level of feature support is present.</p>
+<p>This is achieved with a small amount of inline JavaScript that will inject a script tag into the page if the required features are present:</p>
+<pre class="code"><code>&lt;script&gt;
+if ('eventListner' in window &amp;&amp; 'querySelector' in document) {
+  //Insert script.
+}
+&lt;/script&gt;
+</code></pre>
+
+<p>In this case we are only loading the main JavaScript library if <code>window.eventListener</code> and <code>document.querySelector</code> are supported which means we can use these features without needing to check for support or polyfilling. This test is sufficient for <a href="/blog/2013/02/06/feature-detection-for-jquery-2">jQuery 2</a> but if your code also relies on other features then you should add these to the cutting the mustard test.</p>
+<p>As well as knowing that any features your code requires are supported, there is the additional performance benefit that the JavaScript will not even be requested by browsers that wouldn't run it even if they did download it.</p>
+<h2>CSS</h2>
+<p>As browsers are tolerant of CSS rules they don't understand, there is less need for a cutting the mustard test for CSS features.  It it possible to use JavaScript to detect for support of CSS features and then add a class hook to conditionally apply styles and this is an approach popularised by <a href="http://modernizr.com/">Modenizr</a>.</p>
+<p>Whilst this approach is useful for individual features there is another approach to cutting the mustard for CSS that can be used to 'hide' more advanced CSS from older browsers by using a CSS3 media query that will only be recognised by modern browsers:</p>
+<pre class="code"><code>/* Basic CSS goes here. */
+
+@media only all {
+  /* Enhanced CSS goes here. */
+}
+</code></pre>
+
+<p>The principle here is to have a very basic, completely linear, layout that can be used by all browsers.  Those browsers that support more advanced media queries will pick up the enhanced CSS.  As this is a broad brush approach that forces you to make assumptions about what goes into the enhanced CSS based purely on media query support you should ensure that you think carefully about how you approach this and make sure you test fully in a range of browsers that cover the features you are using.</p>
+<hr/>
+<p><code class="filename">50-testing/10-chapter.md</code></p>
+<h1>Testing</h1>
+<ul>
+<li>Test using real devices</li>
+<li>Focus your testing</li>
+<li>Use Opera Mini</li>
+</ul>
+<p>Building sites this way may sound like you have to do more testing, in fact it should reduce the amount of testing as you should be testing in multiple devices anyway but, if you build it right, more things should just work so that means less defects and less work fixing them.</p>
+<p>Emulators are OK but there's no substitute for testing using real devices. There's nothing quite like an entry level smart phone to highlight issues with performance and usability that you'll will be covered up by a top of the range device.</p>
+<p>You should focus your testing. There's not really much to be gained by doing a full regression on every device and in every browser. You should think about what could cause a problem and focus on those areas in browsers you know will expose that.</p>
+<p>The single best browser for testing is Opera Mini. Due to the way everything is rendered on the server side and sent as a static page to the device it will really test how robustly your site is built. If you site works well in Opera Mini you're probably not going to have any major problems anywhere else.</p>
+<p>I'd also suggest booking some time to do some research, take your team down there and have a look at your site, your competitors' sites and other sites from outside your industry. Look at what's working and what's not and use that to inform which direction you take your site.</p>
+<hr/>
+<p><code class="filename">60-the-future/10-chapter.md</code></p>
+<h1>The future</h1>
+<p>What's going to happen in the future?  <strong>Learn from the past.</strong></p>
+<p>Code you wrote in the past is now living in the future.  Look at how that's working in new browsers.</p>
+<ul>
+<li>What did you do that worked?  Do more of that!</li>
+<li>What did you do that broke?  Don't do that again.</li>
+</ul>
+<p>Browsers are very good at dealing with old websites, if you've built your site to be compatible with older browsers then it's a safe bet that new browsers will be able to handle it.</p>
+<h2>Be general, not specific</h2>
+<p>The more general you make your code the less likely it is to cause you problems.  If your code targets specific browsers then when those browsers change you have to change your code in order to prevent it breaking.</p>
+<p>When Google announced Blink and Mozilla announced their Servo rendering engines on the same day this was my reaction:
+<blockquote class="twitter-tweet boxout"><p>First thought: &quot;Damn! New rendering engines.&quot; Second thought: &quot;I already build device agnostic websites - what do I care?&quot;</p>&mdash; Orde Saunders (@decadecity) <a href="https://twitter.com/decadecity/statuses/319584869191651328">April 3, 2013</a></blockquote></p>
+<p>If you have to change your site when Apple release a new version of one of their products: <strong>you are doing it wrong</strong>.</p>
+<h2>Give up control (You never had it anyway)</h2>
+<p>One of the keys to building in a device agnostic manner is to give up control: You never really had it anyway - you just thought you did.</p>
+<p>Whether trying to deliver the same pixel perfect site to every user or delivering reduced functionality to mobile users 'on the go', trying to exert a control we don't have over how our sites are viewed is fighting a losing battle.</p>
+<p>I know it can seem a bit scary but once you accept that you don't have control over how your users interact with your site it's actually very liberating - you've got no choice but to get the fundamentals right and, once they're right, you have a lot more freedom with how you build up from there.</p>
+<h2>Future Friendly</h2>
+<p><a href="http://futurefriend.ly">futurefriend.ly</a> (not actually <a href="https://en.wikipedia.org/wiki/.ly">from Libya</a>)</p>
+<ol>
+<li>Acknowledge and embrace unpredictability.</li>
+<li>Think and behave in a future-friendly way.</li>
+<li>Help others do the same.</li>
+</ol>
+<p>Future Friendly is a philosophy that emerged as a positive reaction to the increasing varieties of devices that can be connected in the web.</p>
+<p>It acknowledges that the only predictable thing about the future of the web is that it will be unpredictable.</p>
+<p>By building in a device agnostic manner we embrace this unpredictability.</p>
+<hr/>
+<p><code class="filename">99-misc/breaking_the_web.md</code></p>
+<h1>Breaking the web</h1>
+<p>The phrase "breaking the web" is often used in discussions about web technologies and techniques.  Whilst it's a simple sounding phrase it turns out that it's not actually that simple to explain.</p>
+<h2>Accessibility</h2>
+<p>The main way I use the phrase "breaking the web" relates to breaking the accessibility of the web.  When I say accessibility I'm not referring to disabled people - I'm referring to the fundamental ability to access a website.  A good example of this is the use of user agent sniffing to restrict, limit or otherwise reduce, access to certain browsers - typically non "mobile" devices.  Whilst this kind of thing may not necessarily be done with the intention of restricting people's access it's the end result that counts.</p>
+<p>Another manifestation of this is when people try to override browsers' default behaviour because there is some aspect of it they don't like.  Whilst the modified behaviour might well be considered more desirable and/or the browser's default behaviour might seem problematic, it breaks the expectation of how that browser behaves.  A good example of this is using the viewport meta tag to disable zooming.  This can be done to overcome more than one browser behaviour that has been considered undesirable however, as a consequence breaks a fundamental user expectation: zooming.  You might argue that your site doesn't need zooming but you simply can't be aware of all the situations in which your site might be used and, in some of these cases, the ability to zoom might make the difference between the site being usable or unusable.</p>
+<p>This type of "breaking the web" essentially comes down to a desire to exert control, but the side effect of this control is normally some form of exclusion.  As much as it might make our lives easier if it were, the web is not a homogeneous environment- we should be taking the path of diversity and inclusion rather than that of specificity and exclusion.</p>
+<h2>Not following standards</h2>
+<p>The other way I tend to use the phrase is to refer to situations where the fundamental standards of the web aren't being followed, either by accident or design.  An example of this might be creating buttons from styled <code>&lt;span&gt;</code> elements with  an inline JavaScript event handler that navigates to a new page - the <code>&lt;a&gt;</code> element is designed for precisely this task, there's no need to recreate such a fundamental concept.</p>
+<p>Also falling into this category would be an example such as using inappropriate HTTP methods.  The REST standard defines a number of verbs for dealing with content - <code>GET</code> and <code>POST</code> being the most common - and these are handled in different ways.  Whilst it's by no means common, I can think of an example of a site I use regularly where <code>POST</code> is used for the majority of links between pages seemingly as a form of preventing use of the back button.</p>
+<p>This type of "breaking the web" can come from honest ignorance but, where deliberate, comes again from a desire to exert control by using the effects of one type of behavior in a situation for which it is not designed in order to gain a non-standard behaviour.  Whilst there may appear to be a valid use case for this in a given situation, it is probably a sign that the fundamental assumptions of the design are wrong or some other - probably related - element of the standards is being used incorrectly.</p>
+<h2>Conclusion</h2>
+<p>Whilst I accept that the phrase "breaking the web" tends to be overused - including by myself - and often for sensational effect, it can be a useful shorthand when space or time is limited, such as on Twitter.  Whilst the examples given above may seem trivial or unlikely, they hopefully serve to illustrate the kind of things I mean when I say something "breaks the web".</p>
+  </body>
+</html>
+

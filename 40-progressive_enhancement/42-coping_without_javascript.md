@@ -2,8 +2,8 @@
 
 JavaScript is taking an increasingly important role in modern web sites to the point where sites that rely entirely on JavaScript are no longer uncommon.  Whilst it is tempting to assume ubiquitous and up-to-date JavaScript support when building sites it is important to conciser the experience for browsers that either have limited or no JavaScript support.  This article outlines approaches to provide content in these situations and an practical example of how to employ them.
 
-##<code>&lt;noscript&gt;</code>
-The <code>&lt;noscript&gt;</code> tag is an obvious way to deal with a lack of JavaScript support and this is certainly the way to deal with providing alternatives to functionality but it is not the most reliable way to deal with content.  The disadvantage of using the <code>&lt;noscript&gt;</code> tag for content is the lack of control we have over the display, it is entirely controlled by the browser and, according to some reports, may not be reliable in all browsers.
+## `<noscript>`
+The `<noscript>` tag is an obvious way to deal with a lack of JavaScript support and this is certainly the way to deal with providing alternatives to functionality but it is not the most reliable way to deal with content.  The disadvantage of using the `<noscript>` tag for content is the lack of control we have over the display, it is entirely controlled by the browser and, according to some reports, may not be reliable in all browsers.
 
 ##CSS
 If we want a reliable method of dealing with content then we need to use CSS to control the visibility.  The simplest, and most fault tolerant, way to do this is to style the content for the JavaScript disabled scenario and then use JavaScript to add a class to the `<html>` element to provide additional styling.
@@ -18,8 +18,7 @@ When adding content in this manner it is important to conciser the SEO implicati
 Shown below is an outline of an HTML page that includes practical examples of the various techniques discussed above.  You can also see the CSS techniques in action in this <a href="/static/html/pin_producer/">mini web-thing</a> (<a href="https://github.com/decadecity/pin_producer">source on GitHub</a>).
 
 ###Sample HTML page
-<pre class="code">
-&lt;!doctype html&gt;
+<pre class="code"><code>&lt;!doctype html&gt;
 &lt;html&gt;
   &lt;head&gt;
    &lt;!-- Add the CSS hook for JavaScript support. --&gt;
@@ -59,11 +58,10 @@ Shown below is an outline of an HTML page that includes practical examples of th
      &lt;!-- Fallbacks for functionality. --&gt;
    &lt;/noscript&gt;
   &lt;/body&gt;
-&lt;/head&gt;
-</pre>
+&lt;/head&gt;</code></pre>
 
 ##Conclusion
 
- * Use <code>&lt;noscript&gt;</code> for functionality (such as analytics).
+ * Use `<noscript>` for functionality (such as analytics).
  * Use CSS hooks to provide alternative content.
  * Keep SEO implications in mind.
