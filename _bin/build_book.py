@@ -18,16 +18,14 @@ def get_filepaths(directory):
     """
     file_paths = []  # List which will store all of the full filepaths.
 
-
     # Walk the tree.
     for root, directories, files in os.walk(directory):
         root = os.path.normpath(root)
         directories.sort()
-        #pprint(directory)
         files.sort()
         for filename in files:
             # Join the two strings in order to form the full filepath.
-            if not root.startswith('_') and filename.endswith(".md"):
+            if not root.startswith('_') and not root.startswith('.') and filename.endswith(".md"):
                 filepath = os.path.normpath(os.path.join(root, filename))
                 file_paths.append(filepath)  # Add it to the list.
 
@@ -35,8 +33,6 @@ def get_filepaths(directory):
 
 # Run the above function and store its results in a variable.
 full_file_paths = get_filepaths(BASE_PATH + '/..')
-
-#pprint(full_file_paths)
 
 book = '';
 
