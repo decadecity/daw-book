@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name '*.md' | xargs wc -w
+find . -name '*.md' -not -path "./.SyncArchive/*" -not -path "./_lib/*" | xargs wc -w
