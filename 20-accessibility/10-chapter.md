@@ -8,14 +8,14 @@ Accessibility can seem daunting but if you get the basics right throughout the p
   * Image <code>alt</code> attributes
   * Form labels
   * Tab index
-  * ARIA roles
+  * ARIA attributes
 
 We already have semantic markup and that's a brilliant foundation but there are a few more things that, if you get them right in your markup, will enhance your site's usability for all users - not just those that rely on assistive technology.
 
   * Images must have an alt attribute, even if that is null.
   * Form inputs must have labels.  Some controls - like buttons - are implicity labelled but text boxes, radio buttons, checkboxes and the like need labels.
   * Use the tabindex attribute to make sure that all your controls are accessible by keyboard navigation in a logical fashion. We'll come on to keyboard navigation later but it's not just for keyboards - the D-pad on game console controllers is normally mapped to this.  You can actually do quite a bit with the tabindex attribute so I suggest you look at the documentation.
-  * ARIA roles have the promise to give a significant boost to assistive technologies but unfortunately it seems support for them in assistive technologies is slow in arriving.  It's definitely worth finding out about them and putting them into your code but don't rely on them.
+  * ARIA attributes have the promise to give a significant boost to assistive technologies but unfortunately it seems support for them in assistive technologies is slow in arriving.  It's definitely worth finding out about them and putting them into your code but don't rely on them.
 
 ## Presentation
 

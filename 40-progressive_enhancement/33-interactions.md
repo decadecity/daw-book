@@ -33,7 +33,7 @@ By default browsers will move through focusable elements in the order in which t
 
 Navigating this using the keyboard would start at "Item 1" (first item with a defined <code>tabindex</code>, lowest defined <code>tabindex</code> value, first item in mark up with lowest <code>tabindex</code>), move through "Item 2" and "Item 3" before moving on to "Item 4" (as it is the first item with the next lowest defined <code>tabindex</code>), it will then move through "Item 5" and "Item 6" before returning to the "Title" link (as it is the first item in the mark up that doesn't have a <code>tabindex</code>), the "Click me!" button and finally the "Footer" link.
 
-<h4 id="focus">Focus</h4>
+#### Focus
 When navigating sequentially it is important to give clear feedback showing the current position.  This can be easily achieved with the <a href="http://docs.webplatform.org/wiki/css/selectors/pseudo-classes/:focus">CSS <code>:focus</code> pseudo-class</a> to define a clear visual indicator such as a contrasting outline:
 
 <pre class="code">
