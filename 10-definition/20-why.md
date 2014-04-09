@@ -6,7 +6,7 @@ I'm sure anyone who has used the internet on a device other than a traditional d
 This isn't to say that everything we build should be device agnostic, there are situations where you know that you're only going to be dealing with a restricted range of devices, there are situations where you make the decision that a certain level of feature support is required to achieve your goal and you aren't going to make allowances for devices that don't meet this. If it doesn't suit what you are doing then there's nothing wrong with not taking a device agnostic approach.
 
 ## "It depends"
-The answer to the question "should I take a device agnostic approach?" is - like most questions related to the web - "it depends". If you are making a site that is available to the general public then you probably do, especially if your are likely to have a large audience. The nature of your audience is
+The answer to the question "should I take a device agnostic approach?" is - like most questions related to the web - "it depends". If you are making a site that is available to the general public then you probably do, especially if your are likely to have a large audience.
 
 If we take the example of a company that both sells products and provides a way of servicing those products then we can see how this can apply.
 

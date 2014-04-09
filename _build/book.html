@@ -9,11 +9,11 @@
 <hr/>
 <p><code class="filename">10-definition/10-what.md</code></p>
 <h1>What is "The Device Agnostic Web"?</h1>
-<p>"Agnostic" is a big word - what does it mean?  It's faux Greek for "<a href="http://en.wiktionary.org/wiki/agnostic">not knowing</a>".</p>
-<p>So what is the "<strong>device agnostic web</strong>"?  It means we don't know what device will be used to interact with our site.</p>
-<p>But isn't that just "The Web", right?  No.  There are plenty of people out there who try to control which browsers interact with their sites:</p>
+<p>"Agnostic" is a big word - what does it mean? It's faux Greek for "<a href="http://en.wiktionary.org/wiki/agnostic">not knowing</a>".</p>
+<p>So what is the "<strong>device agnostic web</strong>"? It means we don't know what device will be used to interact with our site.</p>
+<p>But isn't that just "The Web", right? No. There are plenty of people out there who try to control which browsers interact with their sites:</p>
 <p><img src="../_img/carphone_warehouse.jpg" alt="WTF Mobile Web"/></p>
-<p>(This is a whole load of fails concentrated in one place.  The Carphone Warehouse aren't a warehouse and they don't sell carphones.  They sell mobile phones and this is the product page for a mobile phone when viewed on that self same mobile phone.)</p>
+<p>(This is a whole load of fails concentrated in one place. The Carphone Warehouse aren't a warehouse and they don't sell carphones. They sell mobile phones and this is the product page for a mobile phone when viewed on that self same mobile phone.)</p>
 <h2>How bad is this problem?</h2>
 <blockquote>
 <p>"45% of the Fortune 100 target smartphone users with dedicated mobile sites
@@ -21,12 +21,56 @@ today, yet none of the companies studied fully comply with Google's mobile
 site requirements."</p>
 </blockquote>
 <p>Source: <a href="http://www.prweb.com/releases/PureOxygenLabs/MobileSEOAssessment/prweb10866624.htm">http://www.prweb.com/releases/PureOxygenLabs/MobileSEOAssessment/prweb10866624.htm</a> <span class="light">2013-06-25</span></p>
-<p>In a survey carried out in 2013 it was found that nearly half of the top 100 American companies are trying to control which browsers interact with their sites - again by trying to target mobile phones with a dedicated site - and none of them were getting it right as judged by <a href="https://developers.google.com/webmasters/smartphone-sites/details">Google's mobile site requirements</a>.  These guidelines aren't exactly rocket surgery - they basically say "don't break the web" [link to misc article] and yet people still can't manage it.</p>
+<p>A survey carried out in 2013 by Pure Oxygen Labs, a mobile consulting and technology company, found that nearly half of the top 100 American companies are trying to control which browsers interact with their sites - again by trying to target mobile phones with a dedicated site - and none of them were getting it right as judged by <a href="https://developers.google.com/webmasters/smartphone-sites/details">Google's mobile site requirements</a>. These guidelines aren't exactly rocket surgery - they basically say "don't break the web" [link to misc article] and yet people still can't manage it.</p>
 <h2>It's not just mobile phones</h2>
-<p>This problem is probably highest profile with mobile phones but there are an awful lot of things out there that are interacting with web sites.  We've got tablets, games consoles, smart televisions, screen readers, search engine spiders, glasses and even watches - and they vary greatly in capabilities. [expand]</p>
+<p>This problem is probably highest profile with mobile phones but there are an awful lot of things out there interacting with web sites. We've got tablets, games consoles, smart televisions, screen readers, search engine spiders, glasses and even watches - and they vary greatly in their capabilities.</p>
+<p>Listed below are some of the capabilities we might typically expect from different types of devices.  It's important to note that these are merely examples, not a hard and fast categorisation.</p>
+<h3>Screen readers and search engine spiders</h3>
+<ul>
+<li>Words only - no typography, colour, graphics or visuals.</li>
+</ul>
+<h3>Wearable devices</h3>
+<ul>
+<li>Very small screen size.</li>
+<li>Effectively fixed orientation.</li>
+<li>Limited interaction capabilities.</li>
+</ul>
+<h3>Low end smart phones</h3>
+<ul>
+<li>Low processing power.</li>
+<li>Low resolution screens.</li>
+<li>Often using outdated or limited browsers.</li>
+</ul>
+<h3>Smart televisions</h3>
+<ul>
+<li>Low processing power.</li>
+<li>Fixed orientation.</li>
+<li>Fixed location and therefore viewing distance.</li>
+</ul>
+<h3>Desktop and laptop computers</h3>
+<ul>
+<li>High processing power.</li>
+<li>Medium to large screen size but effectively fixed orientation.</li>
+<li>Latest browser support available (although not always used).</li>
+</ul>
+<h3>High end smart phones and tablets</h3>
+<ul>
+<li>High processing power, sometimes better than older laptops.</li>
+<li>High resolution screens.</li>
+<li>Multiple inputs including touch, keyboard, location, camera, microphone, etc.</li>
+</ul>
 <hr/>
 <p><code class="filename">10-definition/20-why.md</code></p>
-<h2>Why should we build for the device agnostic web?</h2>
+<h1>Why should we build for the device agnostic web?</h1>
+<p>With the increasing number of devices that are connecting to the web it's simply not possible to try and target each device, device class or however else we want to try and categorise these things. By building in a device agnostic manner we are not only prepared to meet our users' expectations on their terms but we increase the reliability of our site.</p>
+<p>I'm sure anyone who has used the internet on a device other than a traditional desktop or laptop has experienced sites that are hard to read, have some functionality broken or, even worse, have had what you were looking for removed because it's "not suitable for that type of device".  The purpose of building in a device agnostic way is to put control back into the hands of your users, allow them to access your site in the way they want.</p>
+<p>This isn't to say that everything we build should be device agnostic, there are situations where you know that you're only going to be dealing with a restricted range of devices, there are situations where you make the decision that a certain level of feature support is required to achieve your goal and you aren't going to make allowances for devices that don't meet this. If it doesn't suit what you are doing then there's nothing wrong with not taking a device agnostic approach.</p>
+<h2>"It depends"</h2>
+<p>The answer to the question "should I take a device agnostic approach?" is - like most questions related to the web - "it depends". If you are making a site that is available to the general public then you probably do, especially if your are likely to have a large audience.</p>
+<p>If we take the example of a company that both sells products and provides a way of servicing those products then we can see how this can apply.</p>
+<p>The main website that offers information about the company and the products will need to be available to as wide an audience as possible so we'll want to make sure we take the most device agnostic approach - we want this content to be accessible to everyone. We might want to have a more interesting visual design and add some interactive elements for people with more capable devices but at this stage we don't want to exclude anyone.</p>
+<p>Once we move into the sales area of the site we are going to start to impose some minimum requirements, for a start we'll need to use cookies for session management and, whilst we'll not be totally reliant on JavaScript, we'll be using it a lot more to enhance the process and make it easier to complete. Whilst we might be excluding some people at this stage the overheads of a fully device agnostic build start to become significant.</p>
+<p>Finally in the servicing area we are going to take the least device agnostic approach as security and ease of use become the dominant concerns. However, by this stage we know the user is one of our a customers so, whilst we don't want to be taking advantage of it and using it as an excuse, they do now have a relationship with us so we can start to expect more from them. In addition we can use this relationship to offer them more support and alternative channels so they are not completely excluded.</p>
 <hr/>
 <p><code class="filename">20-accessibility/10-chapter.md</code></p>
 <h1>Accessibility</h1>
@@ -37,14 +81,14 @@ site requirements."</p>
 <li>Image <code>alt</code> attributes</li>
 <li>Form labels</li>
 <li>Tab index</li>
-<li>ARIA roles</li>
+<li>ARIA attributes</li>
 </ul>
 <p>We already have semantic markup and that's a brilliant foundation but there are a few more things that, if you get them right in your markup, will enhance your site's usability for all users - not just those that rely on assistive technology.</p>
 <ul>
 <li>Images must have an alt attribute, even if that is null.</li>
 <li>Form inputs must have labels.  Some controls - like buttons - are implicity labelled but text boxes, radio buttons, checkboxes and the like need labels.</li>
 <li>Use the tabindex attribute to make sure that all your controls are accessible by keyboard navigation in a logical fashion. We'll come on to keyboard navigation later but it's not just for keyboards - the D-pad on game console controllers is normally mapped to this.  You can actually do quite a bit with the tabindex attribute so I suggest you look at the documentation.</li>
-<li>ARIA roles have the promise to give a significant boost to assistive technologies but unfortunately it seems support for them in assistive technologies is slow in arriving.  It's definitely worth finding out about them and putting them into your code but don't rely on them.</li>
+<li>ARIA attributes have the promise to give a significant boost to assistive technologies but unfortunately it seems support for them in assistive technologies is slow in arriving.  It's definitely worth finding out about them and putting them into your code but don't rely on them.</li>
 </ul>
 <h2>Presentation</h2>
 <ul>
@@ -163,16 +207,23 @@ site requirements."</p>
 <li>Defer non-essential items (e.g. analytics)</li>
 <li>Validate using real user monitoring (RUM)</li>
 </ul>
-<p>There are plenty of studies that show that the faster your site is the more people will engage with it.  Speed is also a factor in Google rankings and, thanks to a server configuration issue, I've seen that in action.</p>
-<p>You should set a performance budget for your site to prevent it getting too slow as you add more without taking anything away.  Sticking to a budget means that when you want to add something new you have to take something out and that forces you to think about how much value the new feature really adds.</p>
-<p>Whilst it's tempting to think of your budget in terms of time - after all that's what performance is all about - it's not practical to accurately measure time when you are building a site.  You need to define your budget in objective measurements that contribute the page speed.  The key metrics you should be focusing on are:</p>
+<p>There are plenty of studies[1] that show that the faster your site is the more people will engage with it. Speed is also a factor in Google rankings and, [thanks to a server configuration issue,]2 I've seen that in action. </p>
+<p>You should set a performance budget for your site to prevent it getting too slow as you add more without taking anything away. Sticking to a budget means that when you want to add something new you have to take something out and that forces you to think about how much value the new feature really adds.</p>
+<p>Whilst it's tempting to think of your budget in terms of time - after all that's what performance is all about - it's not practical to accurately measure time when you're building a site. You need to define your budget in objective measurements that contribute the page speed. The key metrics to focus on are:</p>
 <ul>
 <li>Number of HTTP requests</li>
-<li>Total page weight</li>
+<li>Total page weight [3]</li>
 <li>Percentage of visual rendering complete (<a href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">speed index</a>)</li>
 </ul>
-<p>You can make some space in your budget by deferring non-essential items.  And by essential I mean essential to your users.  Analytics is a classic example of this - whilst you might conciser them essential, your users don't care.  When was the last time you saw a slow website and thought: "I'm happy to wait for this if it means they get good analytics."</p>
-<p>Whilst I did say don't set your budget using a time measurement, it's a good idea to measure how fast pages are actually loading for your users - this is known as <a href="http://en.wikipedia.org/wiki/Real_user_monitoring">real user monitoring</a>.  With enough data you can get a meaningful average and you can use this to ensure that changes you make to the site aren't having a negative effect on your users' load times.</p>
+<p>You can make some space in your budget by deferring non-essential items.  And by essential I mean essential to your users.  Analytics is a classic example of this - whilst you might conciser them essential, your users don't care.  When was the last time you saw a slow website and thought: "I'm happy to wait for this if it means they get good analytics."?</p>
+<p>That said, it is a good idea to measure how fast pages are actually loading for your users - this is known as <a href="http://en.wikipedia.org/wiki/Real_user_monitoring">real user monitoring</a>.  With enough data you can get a meaningful average and you can use this to ensure that changes you make to the site aren't having a negative effect on your users' load times.[4]</p>
+<p><em>Notes:</em>
+1 Give me just a couple - it makes you more credible and feeds my ability to show it to my annoying boss/client.
+2 Ooo - sounds good - show/tell me more... 
+3 Please expand (even if only a definintion) - what is 'weight'? how is it measured?
+4 How do I do this? At what stage of trhe build should I do it? 
+Throughout - try to avoid 'you should'. It's a bit preachy/dictatory whereas I think you're aiming for more conspiritorial/collaborational.
+As suggested in the Homework file - I would expand this section with an explanation of what a performance budget actually is. I'd also like to see some sort of gague of what is a reasonable figure for each metric, and for the overall amount.  </p>
 <hr/>
 <p><code class="filename">40-progressive_enhancement/10-what.md</code></p>
 <h1>Progressive enhancement</h1>
@@ -333,8 +384,7 @@ site requirements."</p>
 </pre>
 
 <p>Navigating this using the keyboard would start at "Item 1" (first item with a defined <code>tabindex</code>, lowest defined <code>tabindex</code> value, first item in mark up with lowest <code>tabindex</code>), move through "Item 2" and "Item 3" before moving on to "Item 4" (as it is the first item with the next lowest defined <code>tabindex</code>), it will then move through "Item 5" and "Item 6" before returning to the "Title" link (as it is the first item in the mark up that doesn't have a <code>tabindex</code>), the "Click me!" button and finally the "Footer" link.</p>
-<h4 id="focus">Focus</h4>
-
+<h4>Focus</h4>
 <p>When navigating sequentially it is important to give clear feedback showing the current position.  This can be easily achieved with the <a href="http://docs.webplatform.org/wiki/css/selectors/pseudo-classes/:focus">CSS <code>:focus</code> pseudo-class</a> to define a clear visual indicator such as a contrasting outline:</p>
 <pre class="code">
 *:focus {
@@ -414,6 +464,48 @@ nav li li {
 </pre>
 
 <p>Whilst the <code>.pointer</code> hook might not seem necessary for <code>:hover</code> states it clearly isolates them and stops touch devices triggering them.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/34-building-using-ems.md</code></p>
+<h1>Building using ems</h1>
+<p>The fluid grids that form a key part of responsive design use percentages to define widths which means they adapt well to different viewport widths.  Whilst this works well for grids it will not work for heights and any other situation where we need to work with 'fixed' dimensions.</p>
+<h2>The problem with pixels</h2>
+<p>As a fixed unit, pixels might seem like they are the unit of choice for these fixed dimensions and they will certainly work up to a point.  The problem comes when we start combining pixel based layout with fonts that are sized in ems.  In order to make our sites accessible we should be working with a base font that is set to a percentage of the browser's base font (ideally 100%) and then size all our fonts in ems based on an assumed base font size of 16px.  By sizing all text relative to the base font it allows users to change the base font in their browser settings to suit their requirements and our styles will pick this up.</p>
+<p>For example, if we set our base font size to 100% and set our heading to 2em this will, by default result in paragraph text of 16px and heading text of 32px.  If a user has changed their base font size from the default of 16px to 20px then our paragraph text will be 20px and our heading text will be 40px maintaining the typographical relationship between the two types of text and respecting the larger font requested by the user.</p>
+<p>If this text was within a container that had dimensions specified in pixels - for example <code>max-width</code> is commonly used to specify an upper limit on a container - then although the text was now twice as big, the container would not have increased in size.  If the container size was specified in ems then the container would have grown in harmony with the text.</p>
+<h2>Converting from pixels to ems</h2>
+<p>Similar to the <code>target / contextt</code> formula used when creating fluid grids we can calculate the em equivalent size of a pixel dimension but in this case the context is the font size in pixels of the current context.</p>
+<p><code>max-width: 30em; /* */</code></p>
+<p>The problem with this approach is that the you have to keep track of the font size of the current element which can be a challenge, especially in more complex layouts where the font size of parent elements may have changed.</p>
+<h2>Using rems</h2>
+<p>To get round this issue of the font size of an element being liable to change the rem (root em) unit has been introduced.  This is always set to the size of the font on the <code>&lt;body&gt;</code> element so regardless of the font size of our current context it will always be the same.</p>
+<p>As the rem is a relatively new introduction to browsers we can't rely on it for our layouts, we still need to use a fall back.</p>
+<p>// Work out rem fall back.</p>
+<hr/>
+<p><code class="filename">40-progressive_enhancement/35-dealing-with-very-small-screens.md</code></p>
+<h1>Dealing with very small screens</h1>
+<p>With the increasing availability of wearable devices that include a web browser we will have to make sure we are coping with devices with a smaller width screen than 320px, which is the most common size for mobiles.</p>
+<h2>Mobile first</h2>
+<p>The "mobile first" philosophy encourages us to start our implementation with mobile as that is the most constrained environment. It can therefore be tempting to consider the very small screens as the starting point as they are even more constrained.  However, although there are devices out there that have a smaller viewport than 320px they are in the minority so it is safe to assume 320px as the smallest <strong>common</strong> viewport. This means that we can continue to use the layout and typography of this viewport for our baseline presentation as this is what will be presented to devices that don't support media queries.</p>
+<p>This baseline presentation is the main reason we don't start with the smallest viewports, we need a reliable starting point from which to enhance. We are treating support for very small screens as an enhancement rather than the default.</p>
+<p>Normally when we build up from the baseline we use <code>min-width</code> media queries to layer on new styles as the viewport gets progressively wider, but for the narrow screens we need to use a <code>max-width</code> media query that will get layered on as the screen gets smaller.</p>
+<pre class="code"><code>body { // Reliable baseline.
+  font-size: 100%;
+}
+@media all and (max-width:13.75em) { // Very small screens.
+  body {
+    font-size: 75%;
+  }
+}
+@media all and (min-width:60em) { // Very large screens.
+  body {
+    font-size: 125%;
+  }
+}</code></pre>
+
+<p>If the layout has been built using ems for fixed dimensions (as opposed to pixels) then this has the additional benefit that it will scale down proportionally with the base font meaning it will adjust to better fit the very small screens with no additional changes.</p>
+<h2>Knowing when to stop</h2>
+<p>As the readability of text degrades rapidly on smaller screens it might be tempting to optimise for smaller and smaller screens but at some point there will come a point where there simply isn't enough space to show any useful length of text.</p>
+<p>Ultimately we have to rely on device makers to set the combination of screen size and pixel density that is most appropriate for their devices and accept that it's not our problem when they don't.</p>
 <hr/>
 <p><code class="filename">40-progressive_enhancement/40-javascript.md</code></p>
 <h1>JavaScript</h1>
