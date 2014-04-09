@@ -1,6 +1,8 @@
 # Why should we build for the device agnostic web?
 With the increasing number of devices that are connecting to the web it's simply not possible to try and target each device, device class or however else we want to try and categorise these things. By building in a device agnostic manner we are not only prepared to meet our users' expectations on their terms but we increase the reliability of our site.
 
+I'm sure anyone who has used the internet on a device other than a traditional desktop or laptop has experienced sites that are hard to read, have some functionality broken or, even worse, have had what you were looking for removed because it's "not suitable for that type of device".  The purpose of building in a device agnostic way is to put control back into the hands of your users, allow them to access your site in the way they want.
+
 This isn't to say that everything we build should be device agnostic, there are situations where you know that you're only going to be dealing with a restricted range of devices, there are situations where you make the decision that a certain level of feature support is required to achieve your goal and you aren't going to make allowances for devices that don't meet this. If it doesn't suit what you are doing then there's nothing wrong with not taking a device agnostic approach.
 
 ## "It depends"
