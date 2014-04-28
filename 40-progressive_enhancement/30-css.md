@@ -4,7 +4,7 @@
   * Media queries
   * Interaction optimisations
 
-Like HTML, CSS has progressive enhancement built in - browsers will ignore things they don't understand.  Again, providing we get the basics right, we can use advanced features provided we don't rely on them.
+Like HTML, CSS has progressive enhancement built in - browsers will ignore things they don't understand. Again, providing we get the basics right, we can use advanced features provided we don't rely on them.
 
 ## Baseline presentation
 

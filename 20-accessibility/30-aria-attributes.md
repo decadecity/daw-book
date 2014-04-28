@@ -1,12 +1,12 @@
 # ARIA attributes
 
-Accessible Rich Internet Applications (ARIA) attributes allow additional information to be added to web pages to provide more information to assistive technologies.  The ARIA specification describes an overwhelming number of these attributes and support for these in assistive technologies is far from universal.  Given this lack of support, ARIA attributes should be considered an enhancement to improve accessibility rather than a way to solve more fundamental problems.
+Accessible Rich Internet Applications (ARIA) attributes allow additional information to be added to web pages to provide more information to assistive technologies. The ARIA specification describes an overwhelming number of these attributes and support for them in assistive technologies is far from universal. Given this lack of support, ARIA attributes should be considered an enhancement to improve accessibility rather than a way to solve more fundamental problems.
 
 ## Landmark roles
-By marking up your content with semantic HTML you should have little or no need for ARIA roles that describe document structure.  There are however, some structural roles that are defined as "landmark roles" which are intended to help assistive technologies identify key navigational structures on a page that may not be identified from the semantics of the markup alone.
+By marking up your content with semantic HTML you should have little or no need for ARIA roles[1] that describe document structure. There are however, some structural roles, 'landmark roles', intended to help assistive technologies identify key navigational structures on a page when they may not be identified from the semantics of the markup alone.[2][3]
 
 ### Banner
-The `banner` role is used to indicate content that relates to the site as a whole rather than the specific page.  This is often the header of a page that includes items such as the company logo, authentication and search.
+The 'banner' role is used to indicate content that relates to the site as a whole rather than the specific page.  This is often the header of a page that includes items such as the company logo, authentication and search.
 
 <pre class="code"><code>&lt;header role="banner"&gt;
   &lt;img src="logo.png" alt="Company name"/&gt;
@@ -14,7 +14,7 @@ The `banner` role is used to indicate content that relates to the site as a whol
 &lt;/header&gt;</code></pre>
 
 ### Main
-The `main` role is exactly analogous to the `<main>` HTML5 element, unlike other HTML5 sectioning elements - such as `<article>` which can be used more than once on a page - there should only ever be one main element on a page and this should be used to indicate the content that is key to the page.  It should be treated by assistive technologies as a "skip to content" link allowing the user to bypass any content such as banners and menus and arrive directly at the purpose of the page.  However, as support for this is limited it should not be treated as an alternative to providing a "skip to content" link, it is supplementary.  Whilst the `main` role has now superseded by the `<main>` element the role has been around for longer so, until support improves it's probably best to use both the element and the role:
+The `main` role is exactly analogous to the `<main>` HTML5 element, unlike other HTML5 sectioning elements - such as `<article>` which can be used more than once on a page - there should only ever be one main element on a page and this should be used to indicate the content that is key to the page.  It should be treated by assistive technologies as a "skip to content" link allowing the user to bypass any content such as banners and menus and arrive directly at the purpose of the page.  However, as support for this is limited it should not be treated as an alternative to providing a "skip to content" link, it is supplementary.[4]  Whilst the `main` role has now superseded by the `<main>` element the role has been around for longer so, until support improves it's probably best to use both the element and the role:
 
 `<main role="main">...</main>`
 
@@ -66,3 +66,12 @@ However, this still isn't as good as using semantic HTML:
 
 ##Conclusion
 Whilst ARIA roles can be used to enhance accessibility, they aren't a substitute for semantic HTML.
+
+
+
+[1] It's probably a stupid question - is a 'role' the same as an attribute?
+[2] This sentence was a little ambiguous. I assume that it's the items that aren't specified, rather than the page, so I've tried to make it a bit clearer. 
+[3] So what? Or are the 'landmark roles' ARIA attributes? In which case, make that clearer.
+[4] Why bother with it then? If a 'skip to content' link will work just as well? I think the explaination for why you need to do this needs to come earlier in the chapter - either at the beginning of this section, or in the previous bit.
+
+

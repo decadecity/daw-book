@@ -9,4 +9,4 @@ What is Progressive enhancement?  We start with a solid foundation and enhance f
 
 The traditional view of progressive enhancement is that you start with the HTML for the content, add CSS for the presentation and finally add on JavaScript for the behaviour.
 
-This separation of concerns should, of course, be the the foundation for any site but we can do more:  We can also apply progressive enhancement **within** each of these elements.
+This separation of concerns should, of course, be the the foundation for any site but we can do more: we can also apply progressive enhancement **within** each of these elements.

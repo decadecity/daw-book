@@ -1,0 +1,42 @@
+#Editorial Comments
+First and foremost, because I feel I need to always say it, this is your book not mine. Anything I change, delete, add or question is only a suggestion. Some of them are stronger than others, so I may make you fight your corner a little, but at the end of the process this will have your name on it not mine, so you need to feel comfortable with that.
+
+There are a load of notes within each section - each of which I'd like you to address when you come to do the edit. I'm happy to discuss any of them, so feel free to challenge back (or just ask for clarification if what I've put doesn't make sense!).
+
+The more general comments I've put below to give you a 'wide angle' view as well. These are either fairly fundamental issues, or keep cropping up. 
+
+I'll add to this file as and when I have more comments, and I'm happy for us to have discussion in this document if you think that will help. (And can tell me how we do it without it being confusing. What I've done so far is fine, but I fear that many back-and-forth sessions could start to make things tricky? I may be fretting over nothing.) 
+
+##Structure
+I'm not sure about the current structure. 
+
+It might help when I see it on the page, as one long document rather than in loads of different files, but it seems really bitty. It feels like the subject matter is jumping around between things a lot, which is distracting and making me think about the structure when what I'm trying to concentrate on is the content. 
+
+It's your book, and your style, so obviously you get to have it the way you want it, but I think you need to think hard about why you're doing it the way you are and whether or not you want to. I would suggest that, beyond an actual introduction, the most you should put in the chapter intro section is plain bullets, no extra info, then deal with each item in full before moving on to the next.
+
+
+###New Chapter Header
+
+* Bullets of 
+* What's in 
+* This chapter
+
+Intro para (what this one is about and why the reader should care)
+
+####Sub header
+full content 
+
+####Sub header
+full content 
+
+Concluding para
+
+~~~~~~~~~~~~~~
+##Style
+Decide once and for all the level of informality you're happy with. In parts you're very formal and traditional ('correct') with your writng, and in other parts you're much more relaxed and informal (much more modern). Either is acceptable nowadays, but pick one and stick with it. (Then tell me which, so I can fix things as I spot them.) 
+
+~~~~~~~~~~~~~~
+##Links
+What's the deal with the links? I'm assuming you want them to be active in the main body of your book? Which is why I've not been taking them out. But what's an 'abbr' tag, and do you mean to have it in your main body text? What's the benefit of it for the reader? 
+
+
