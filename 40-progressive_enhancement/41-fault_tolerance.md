@@ -1,5 +1,4 @@
 # Progressive enhancement for fault tolerance
-
 I advocate that, to provide a solid baseline, the core functionality of your site should be available without relying on JavaScript.  The main driver behind this is fault tolerance and reliability rather than catering for the small number of users that don't have JavaScript enabled.
 
 If the purpose of your site it to take people's money so you can get paid then you want to be able to take their money without using JavaScript.  When you add on JavaScript you can be much more efficient at taking people's money.  JavaScript is fragile, there are lots of ways in which it will break and you won't have thought of most of them.  If you aren't relying on JavaScript to take people's money then when (not if) JavaScript isn't working then you are still getting paid.

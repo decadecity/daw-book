@@ -21,7 +21,7 @@ To get round this issue of the font size of an element being liable to change th
 
 As the rem is a relatively new introduction to browsers we can't rely on it for our layouts, we still need to use a fall back.
 
-// Work out rem fall back.
+// Work out rem fall back?
 
 
 

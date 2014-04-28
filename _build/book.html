@@ -66,16 +66,16 @@ site requirements."</p>
 <p>I'm sure anyone who has used the internet on a device other than a traditional desktop or laptop has experienced sites that are hard to read, have some functionality broken or, even worse, have had what you were looking for removed because it's "not suitable for that type of device".  The purpose of building in a device agnostic way is to put control back into the hands of your users, allow them to access your site in the way they want.</p>
 <p>This isn't to say that everything we build should be device agnostic, there are situations where you know that you're only going to be dealing with a restricted range of devices, there are situations where you make the decision that a certain level of feature support is required to achieve your goal and you aren't going to make allowances for devices that don't meet this. If it doesn't suit what you are doing then there's nothing wrong with not taking a device agnostic approach.</p>
 <h2>"It depends"</h2>
-<p>The answer to the question "should I take a device agnostic approach?" is - like most questions related to the web - "it depends". If you are making a site that is available to the general public then you probably do, especially if your are likely to have a large audience.</p>
+<p>The answer to the question "should I take a device agnostic approach?" is - like most questions related to the web - "it depends". If you are making a site that is available to the general public then you probably do, especially if you are likely to have a large audience.</p>
 <p>If we take the example of a company that both sells products and provides a way of servicing those products then we can see how this can apply.</p>
-<p>The main website that offers information about the company and the products will need to be available to as wide an audience as possible so we'll want to make sure we take the most device agnostic approach - we want this content to be accessible to everyone. We might want to have a more interesting visual design and add some interactive elements for people with more capable devices but at this stage we don't want to exclude anyone.</p>
-<p>Once we move into the sales area of the site we are going to start to impose some minimum requirements, for a start we'll need to use cookies for session management and, whilst we'll not be totally reliant on JavaScript, we'll be using it a lot more to enhance the process and make it easier to complete. Whilst we might be excluding some people at this stage the overheads of a fully device agnostic build start to become significant.</p>
-<p>Finally in the servicing area we are going to take the least device agnostic approach as security and ease of use become the dominant concerns. However, by this stage we know the user is one of our a customers so, whilst we don't want to be taking advantage of it and using it as an excuse, they do now have a relationship with us so we can start to expect more from them. In addition we can use this relationship to offer them more support and alternative channels so they are not completely excluded.</p>
+<p>The main website that offers information about the company and the products will need to be available to as wide an audience as possible so we'll want to make sure we take the most device agnostic approach - we want this content to be accessible to everyone. We might want to have a more interesting visual design and add some interactive elements for people with more capable devices but, at this stage, we don't want to exclude anyone.</p>
+<p>Once we move into the sales area of the site we are going to start to impose some minimum requirements. For a start we'll need to use cookies for session management and, whilst we'll not be totally reliant on JavaScript, we'll be using it a lot more to enhance the process and make it easier to complete. Whilst we might be excluding some people at this stage, the overheads of a fully device agnostic build start to become significant.</p>
+<p>Finally, in the servicing area we are going to take the least device agnostic approach as security and ease of use become the dominant concerns. However, by this stage we know the user is one of our customers so, whilst we don't want to be taking advantage of it and using it as an excuse, they do now have a relationship with us and we can start to expect more from them in terms of using a device that meets a set of minimum requirements. In addition, we can use this relationship to offer them more support and alternative channels so they are not completely excluded.</p>
 <hr/>
 <p><code class="filename">20-accessibility/10-chapter.md</code></p>
 <h1>Accessibility</h1>
 <p>People often think of accessibility as being for the disabled but, done right, it will make your site more accessible for all your users regardless of ability, device and conditions.</p>
-<p>Accessibility can seem daunting but if you get the basics right throughout the process then it doesn't have to be a big thing.  Accessibility only really becomes a problem when you try and retro-fit it to a project at the end.</p>
+<p>Accessibility can seem daunting but, if you get the basics right throughout the process, you'll end up with an accessible site.  Accessibility only really becomes a problem when you try and retro-fit it to a project at the end.</p>
 <h2>Structure</h2>
 <ul>
 <li>Image <code>alt</code> attributes</li>
@@ -83,12 +83,12 @@ site requirements."</p>
 <li>Tab index</li>
 <li>ARIA attributes</li>
 </ul>
-<p>We already have semantic markup and that's a brilliant foundation but there are a few more things that, if you get them right in your markup, will enhance your site's usability for all users - not just those that rely on assistive technology.</p>
+<p>We already have semantic markup and that's a brilliant foundation but there are a few more things that, if you get them right in your markup, will enhance your site's usability for all users - not just those who rely on assistive technology.</p>
 <ul>
-<li>Images must have an alt attribute, even if that is null.</li>
-<li>Form inputs must have labels.  Some controls - like buttons - are implicity labelled but text boxes, radio buttons, checkboxes and the like need labels.</li>
-<li>Use the tabindex attribute to make sure that all your controls are accessible by keyboard navigation in a logical fashion. We'll come on to keyboard navigation later but it's not just for keyboards - the D-pad on game console controllers is normally mapped to this.  You can actually do quite a bit with the tabindex attribute so I suggest you look at the documentation.</li>
-<li>ARIA attributes have the promise to give a significant boost to assistive technologies but unfortunately it seems support for them in assistive technologies is slow in arriving.  It's definitely worth finding out about them and putting them into your code but don't rely on them.</li>
+<li>Images must have an alt attribute, even if that is null.  Without an alt attribute screen readers will attempt to inform users that there is an image but what they actually read out is likely to be confusing.  If the alt attribute is null then screen readers will not read anything out and this is the best option for images that are decorative but do not convey any information.</li>
+<li>Form inputs must have labels.  Some controls - like buttons - are implicity labelled but text boxes, radio buttons, checkboxes and the like need labels.  Without a label it is not possible for assistive technologies to determine the purpose of a field.  Labels should also be visible, placeholder text is not an acceptable visual substitute for a label as it is removed when the field when it has input meaning that, once there is data in the field the purpose of the field is no longer evident.</li>
+<li>Use the tabindex attribute to make sure that all your controls are accessible by keyboard navigation in a logical fashion. We'll come on to keyboard navigation later but it's not just for keyboards - the D-pad on game console controllers is normally mapped to this.  More information can be found in [section 40/33]</li>
+<li>ARIA attributes have the promise to give a significant boost to assistive technologies but unfortunately it seems support for them in assistive technologies is slow in arriving.  It's definitely worth finding out about them and putting them into your code but don't rely on them.  More information can be found in [section 20/30]</li>
 </ul>
 <h2>Presentation</h2>
 <ul>
@@ -97,10 +97,10 @@ site requirements."</p>
 <li>Fixed dimensions in <code>em</code></li>
 </ul>
 <p>As with HTML, accessibility in CSS isn't just for disabled users.  An accessible site will be easier for all users to use.</p>
-<p>Designers:  If you only remember one thing from this talk then remember this:  <strong>The minimum accessible <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef">contrast ratio</a> between foreground and background is 4.5:1</strong>.</p>
-<p>Don't think of this as a restriction, treat it as a challenge.  The best designers I've worked with have come up with some really creative solutions that are right on this limit.  And don't forget:  this contrast isn't just for blind people, it will make your site easy to read on monochrome screens, small screens, screens in sunlight, screens viewed at an angle - in fact most situations that aren't the nice big screen in ideal lighting you use to do your design work.</p>
-<p>Set a prominent focus highlight.  This is essential for keyboard navigation.  This doesn't look the best for mouse and touchscreen navigation but you can use JavaScript to remove this until you detect keyboard input - the important thing is to have a prominent highlight by default. [link to explanation of this technique]</p>
-<p>Don't use pixels for fixed dimensions - use ems.  This allows users to change the base or minimum font sizes and your site won't fall apart. [expand]</p>
+<p>Designers, if you only remember one thing from this book, remember this: <strong>The minimum accessible <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef">contrast ratio</a> between foreground and background is 4.5:1</strong>.</p>
+<p>Don't think of this as a restriction, treat it as a challenge. The best designers I've worked with have come up with some really creative solutions that are right on this limit. And remember, this contrast isn't just for blind people, it will make your site easy to read on monochrome screens, small screens, screens in sunlight, screens viewed at an angle - in fact most situations that aren't the nice big screen in ideal lighting you use to do your design work.  More information about contrast ratio can be found in section [20/20]</p>
+<p>Set a prominent focus highlight.  This is essential for keyboard navigation.  This doesn't look the best for mouse and touchscreen navigation but you can use JavaScript to remove this until you detect keyboard input - the important thing is to have a prominent highlight by default. [link to explanation of this technique in section 40/33]</p>
+<p>Don't use pixels for fixed dimensions - use ems.  This allows users to change the base or minimum font sizes and your site won't fall apart. [link to explanation if this technique in section 20/34]</p>
 <hr/>
 <p><code class="filename">20-accessibility/20-contrast-ratio.md</code></p>
 <h1>Understanding contrast ratio</h1>
@@ -150,18 +150,18 @@ site requirements."</p>
 <hr/>
 <p><code class="filename">20-accessibility/30-aria-attributes.md</code></p>
 <h1>ARIA attributes</h1>
-<p>Accessible Rich Internet Applications (ARIA) attributes allow additional information to be added to web pages to provide more information to assistive technologies.  The ARIA specification describes an overwhelming number of these attributes and support for these in assistive technologies is far from universal.  Given this lack of support, ARIA attributes should be considered an enhancement to improve accessibility rather than a way to solve more fundamental problems.</p>
+<p>Accessible Rich Internet Applications (ARIA) attributes allow additional information to be added to web pages to provide more information to assistive technologies. The ARIA specification describes an overwhelming number of these attributes and support for them in assistive technologies is far from universal. Given this lack of support, ARIA attributes should be considered an enhancement to improve accessibility rather than a way to solve more fundamental problems.</p>
 <h2>Landmark roles</h2>
-<p>By marking up your content with semantic HTML you should have little or no need for ARIA roles that describe document structure.  There are however, some structural roles that are defined as "landmark roles" which are intended to help assistive technologies identify key navigational structures on a page that may not be identified from the semantics of the markup alone.</p>
+<p>By marking up your content with semantic HTML you should have little or no need for ARIA roles[1] that describe document structure. There are however, some structural roles, 'landmark roles', intended to help assistive technologies identify key navigational structures on a page when they may not be identified from the semantics of the markup alone.[2][3]</p>
 <h3>Banner</h3>
-<p>The <code>banner</code> role is used to indicate content that relates to the site as a whole rather than the specific page.  This is often the header of a page that includes items such as the company logo, authentication and search.</p>
+<p>The 'banner' role is used to indicate content that relates to the site as a whole rather than the specific page.  This is often the header of a page that includes items such as the company logo, authentication and search.</p>
 <pre class="code"><code>&lt;header role="banner"&gt;
   &lt;img src="logo.png" alt="Company name"/&gt;
   &lt;span class="strap-line"&gt;Company strap line&lt;/span&gt;
 &lt;/header&gt;</code></pre>
 
 <h3>Main</h3>
-<p>The <code>main</code> role is exactly analogous to the <code>&lt;main&gt;</code> HTML5 element, unlike other HTML5 sectioning elements - such as <code>&lt;article&gt;</code> which can be used more than once on a page - there should only ever be one main element on a page and this should be used to indicate the content that is key to the page.  It should be treated by assistive technologies as a "skip to content" link allowing the user to bypass any content such as banners and menus and arrive directly at the purpose of the page.  However, as support for this is limited it should not be treated as an alternative to providing a "skip to content" link, it is supplementary.  Whilst the <code>main</code> role has now superseded by the <code>&lt;main&gt;</code> element the role has been around for longer so, until support improves it's probably best to use both the element and the role:</p>
+<p>The <code>main</code> role is exactly analogous to the <code>&lt;main&gt;</code> HTML5 element, unlike other HTML5 sectioning elements - such as <code>&lt;article&gt;</code> which can be used more than once on a page - there should only ever be one main element on a page and this should be used to indicate the content that is key to the page.  It should be treated by assistive technologies as a "skip to content" link allowing the user to bypass any content such as banners and menus and arrive directly at the purpose of the page.  However, as support for this is limited it should not be treated as an alternative to providing a "skip to content" link, it is supplementary.[4]  Whilst the <code>main</code> role has now superseded by the <code>&lt;main&gt;</code> element the role has been around for longer so, until support improves it's probably best to use both the element and the role:</p>
 <p><code>&lt;main role="main"&gt;...&lt;/main&gt;</code></p>
 <h3>Content information</h3>
 <p>The <code>contentinfo</code> role is similar to the <code>banner</code> role but it is used to indicate supplementary information about the page such as copyright information.</p>
@@ -198,6 +198,26 @@ site requirements."</p>
 <p><code>&lt;button&gt;Press me!&lt;/button&gt;</code></p>
 <h2>Conclusion</h2>
 <p>Whilst ARIA roles can be used to enhance accessibility, they aren't a substitute for semantic HTML.</p>
+<p>[1] It's probably a stupid question - is a 'role' the same as an attribute?
+[2] This sentence was a little ambiguous. I assume that it's the items that aren't specified, rather than the page, so I've tried to make it a bit clearer. 
+[3] So what? Or are the 'landmark roles' ARIA attributes? In which case, make that clearer.
+[4] Why bother with it then? If a 'skip to content' link will work just as well? I think the explaination for why you need to do this needs to come earlier in the chapter - either at the beginning of this section, or in the previous bit.</p>
+<hr/>
+<p><code class="filename">20-accessibility/34-building-using-ems.md</code></p>
+<h1>Building using ems</h1>
+<p>The fluid grids that form a key part of responsive design use percentages to define widths which means they adapt well to different viewport widths.  Whilst this works well for grids it will not work for heights and any other situation where we need to work with 'fixed' dimensions.</p>
+<h2>The problem with pixels</h2>
+<p>As a fixed unit, pixels might seem like they are the unit of choice for these fixed dimensions and they will certainly work up to a point.  The problem comes when we start combining pixel based layout with fonts that are sized in ems.  In order to make our sites accessible we should be working with a base font that is set to a percentage of the browser's base font (ideally 100%) and then size all our fonts in ems based on an assumed base font size of 16px.  By sizing all text relative to the base font it allows users to change the base font in their browser settings to suit their requirements and our styles will pick this up.</p>
+<p>For example, if we set our base font size to 100% and set our heading to 2em this will, by default result in paragraph text of 16px and heading text of 32px.  If a user has changed their base font size from the default of 16px to 20px then our paragraph text will be 20px and our heading text will be 40px maintaining the typographical relationship between the two types of text and respecting the larger font requested by the user.</p>
+<p>If this text was within a container that had dimensions specified in pixels - for example <code>max-width</code> is commonly used to specify an upper limit on a container - then although the text was now twice as big, the container would not have increased in size.  If the container size was specified in ems then the container would have grown in harmony with the text.</p>
+<h2>Converting from pixels to ems</h2>
+<p>Similar to the <code>target / contextt</code> formula used when creating fluid grids we can calculate the em equivalent size of a pixel dimension but in this case the context is the font size in pixels of the current context.</p>
+<p><code>max-width: 30em; /* */</code></p>
+<p>The problem with this approach is that the you have to keep track of the font size of the current element which can be a challenge, especially in more complex layouts where the font size of parent elements may have changed.</p>
+<h2>Using rems</h2>
+<p>To get round this issue of the font size of an element being liable to change the rem (root em) unit has been introduced.  This is always set to the size of the font on the <code>&lt;body&gt;</code> element so regardless of the font size of our current context it will always be the same.</p>
+<p>As the rem is a relatively new introduction to browsers we can't rely on it for our layouts, we still need to use a fall back.</p>
+<p>// Work out rem fall back?</p>
 <hr/>
 <p><code class="filename">30-performance/10-chapter.md</code></p>
 <h1>Performance</h1>
@@ -235,72 +255,54 @@ As suggested in the Homework file - I would expand this section with an explanat
 <li>JavaScript (Behaviour)</li>
 </ol>
 <p>The traditional view of progressive enhancement is that you start with the HTML for the content, add CSS for the presentation and finally add on JavaScript for the behaviour.</p>
-<p>This separation of concerns should, of course, be the the foundation for any site but we can do more:  We can also apply progressive enhancement <strong>within</strong> each of these elements.</p>
+<p>This separation of concerns should, of course, be the the foundation for any site but we can do more: we can also apply progressive enhancement <strong>within</strong> each of these elements.</p>
 <hr/>
 <p><code class="filename">40-progressive_enhancement/20-html.md</code></p>
 <h1>HTML</h1>
 <p>The foundation of any site is the structure of the HTML but, even with a mobile first approach, all too often not enough consideration is given to this aspect of the process. Using an extensible base template is a good idea for a number of reasons but some thought should be given to how much of the site chrome (headings, footers, menus etc.) is fixed in the template.</p>
-<p>Look at the use cases for your site, look at user journeys, look at link tracking in analytics and conduct user testing to find out how your users actually use your site. This should inform the information hierarchy for each page which will form the linear order of the content on narrow screens - with more space you can float and re-position content to form a richer and more consistent layout but on a small screen you have to have the order right in the markup.</p>
-<p>You should pay most attention to the items you would not normally focus on: What is the minimum you can have in the header? Is your top level menu really the most important item in your information hierarchy? Do you even need to show the menus before the content on some pages?</p>
+<p>Look at the use cases for your site, look at user journeys, look at link tracking in analytics and conduct user testing to find out how your users actually use your site. This should inform the information hierarchy for each page which will form the linear order of the content on narrow screens. With more space, you can float and re-position content to form a richer and more consistent layout, but on a small screen you have to have the order right in the markup.[1]</p>
+<p>You should pay most attention to the items you would not normally focus on. What is the minimum amount of content you can have in the header? Is your top level menu really the most important item in your information hierarchy? Do you even need to show the menus before the content on some pages?</p>
 <h2>HTML</h2>
-<ul>
-<li>Clean</li>
-<li>Semantic</li>
-</ul>
-<p>The core attributes of our HTML are that it should be clean and semantic.  Getting this right gives us the best chance of it working everywhere.</p>
+<p>The core attributes of our HTML are that it should be clean and semantic. Getting this right gives us the best chance of it working everywhere.</p>
 <p>Let's look at these attributes in a bit more detail:</p>
 <h3>Clean</h3>
-<ul>
-<li>Correctly nest tags</li>
-<li>Close <em>all</em> tags (e.g. <code>&lt;br/&gt;</code>)</li>
-<li>Quote attributes</li>
-<li>Well formed XML</li>
-</ul>
-<p>Previously I would have said 'valid' rather than 'clean' here, however, HTML 5's validation rules are lax enough that it's not much use as a guide for where we need to be.</p>
-<p>What we're looking for is robust markup that's not going to cause problems for any browser's parser.</p>
-<p>An advantage of HTML5 is that progressive enhancement is built it - browsers will ignore things they don't understand.  This means that, providing we get the basics right, we can safely use more modern markup as long as we don't rely on it.</p>
-<p>Correctly nesting tags should be something you are doing anyway - whilst you might be able to get away with overlapping tags in some browsers, you don't know how reliably an unknown browser will react.</p>
-<p>Close all tags - even those you don't strictly have to like line breaks, meta tags and other singleton tags.  Yes, you can get away with not doing it but if you do it you don't have to "get away with it" - it's just going to work.</p>
+<p>Previously I would have said 'valid' rather than 'clean' here, however, HTML 5's validation rules are lax enough that it's not much use as a guide for where we need to be. What we're looking for is robust markup that's not going to cause problems for any browser's parser.</p>
+<p>An advantage of HTML5 is that progressive enhancement is built it - browsers will ignore things they don't understand. This means that, providing we get the basics right, we can safely use more modern markup as long as we don't rely on it.</p>
+<p>Correctly nesting tags should be something we do anyway - whilst you might be able to get away with overlapping tags in some browsers, you don't know how reliably an unknown browser will react.</p>
+<p>Close all tags - even those you don't strictly have to, like line breaks, meta tags and other singleton tags. Yes, you can get away with not doing it but if you do it you don't have to "get away with it" - it's just going to work.</p>
 <p>The same goes for quoting attributes - if you quote them, it's going to work.</p>
-<p>What we're building up to here is that your HTML should be well formed XML.  Now that probably sounds like overkill especially as nobody really likes XML that much. The point here is that if it's well formed XML then the browser's parser doesn't have to guess about anything when it's building the DOM tree, you're not going to be caught out by how an unknown browser handles HTML it doesn't fully understand.</p>
+<p>What we're building up to here is that your HTML should be well formed XML. Now that probably sounds like overkill, especially as nobody really likes XML that much, but the point here is that if it's well formed XML then the browser's parser doesn't have to guess about anything when it's building the DOM tree. You're not going to be caught out by how an unknown browser handles HTML it doesn't fully understand.</p>
 <h3>Semantic</h3>
-<ul>
-<li>Headings</li>
-<li>Paragraphs</li>
-<li>Lists</li>
-<li>Anchors</li>
-<li>New HTML5 elements</li>
-</ul>
-<p>I'm not going to get into the details of exactly what element should be used to markup what content, that would take forever, everyone would disagree with me and we'd all be right.</p>
-<p>However, headings, paragraphs, lists and anchors have been around since <a href="http://www.w3.org/MarkUp/draft-ietf-iiir-html-01.txt">the start of HTML</a>.  If you make sure your content is correctly marked up using these then it really should work in any browser ever made.</p>
-<p>The new HTML5 elements - and in particular the sectioning elements such as header, footer and the like - are fine to use but don't rely on them.  The definitions aren't all stable and I'm not sure if there's really much out there that actually uses them.</p>
-<p>The other thing to bear in mind is that older browsers - and not just IE - might not recognise them.  My recommendation is to put them in to mark sections but then put <code>div</code>s inside them to actually hang styles and functionality from.  [see below]</p>
-<p>Try not to get analysis paralysis with figuring out the correct way to semantically markup content.  Start with the basics to give you a good foundation and think about what the content is supposed to be rather than how it is supposed to look.  Making a few dodgy decisions here and there is much better than not even attempting it.</p>
-<p>If you can change the layout of your site purely by changing the CSS and not touching the markup then it's a good indication that it's semantic.</p>
+<p>I'm not going to get into the details of exactly which element should be used to markup what content, that would take forever, everyone would disagree with me and we'd all be right. However, headings, paragraphs, lists and anchors have been around since <a href="http://www.w3.org/MarkUp/draft-ietf-iiir-html-01.txt">the start of HTML</a>.  If you make sure your content is correctly marked up using these then it really should work in any browser ever made.</p>
+<p>The new HTML5 elements - and in particular the sectioning elements such as header, footer and the like - are fine to use but we can't rely on them yet. The definitions aren't all stable and I'm not sure if there's currently much out there that actually uses them, however, this is likely to change so including them should help future proof your pages. Another thing to bear in mind is that older browsers - and not just IE - might not recognise them. My recommendation is to put them in to mark sections but then put <code>div</code>s inside them to actually hang styles and functionality from. See [40/21] for more information.</p>
+<p>It's easy to get analysis paralysis with figuring out the correct way to markup content semantically, so start with the basics to get a good foundation and focus on what the content is supposed to be rather than how it is supposed to look.[4] Making a few dodgy decisions here and there is infinitely better than not even bothering to attempt it.</p>
+<p>If you can change the layout of your site purely by changing the CSS and without touching the markup, it's a good indication that your markup is semantic. If you can't, it will give you a good indication of where to go first to start fixing it.</p>
+<p><em>Notes</em>
+1 What if you're building something from scratch?</p>
 <hr/>
 <p><code class="filename">40-progressive_enhancement/21-html5_elements.md</code></p>
 <h1>HTML5 Elements for Legacy Browsers</h1>
-<p>Some legacy browsers, and in particular Internet Explorer prior to version 9, do not support new HTML elements such as <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code>.  Here I outline a few ways of dealing with this that I have used on different projects.</p>
+<p>Some legacy browsers, and in particular Internet Explorer prior to version 9, do not support new HTML elements such as <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code>. Here I outline a few ways of dealing with this that I have used on different projects.</p>
 <h2>Change the Doctype</h2>
-<p>As valid HTML4 is also valid HTML5 changing the doctype shouldn't have any adverse effects for the majority of sites and, unless there is a very good technical reason not to, changing this is an easy first step towards making a site ready for HTML5 even if you aren't using any of the new elements.  If you are using the new elements then changing the doctype is a must.</p>
+<p>As valid HTML4 is also valid HTML5, changing the doctype shouldn't have any adverse effects for the majority of sites and, unless there is a very good technical reason not to, changing this is an easy first step towards making a site ready for HTML5 even if you aren't using any of the new elements. If you are using the new elements then changing the doctype is a must.</p>
 <h2>Don't use HTML5 elements</h2>
-<p>Denial is the easiest short term way of dealing with new HTML5 elements but not a <a href="http://futurefriend.ly/">future friendly</a> approach.  Whilst it is true that current technology doesn't make much use of the semantics of the new elements it is only reasonable to expect that to change so, whilst this will work for now, you aren't setting yourself up for future success.</p>
+<p>Denial is the easiest short term way of dealing with new HTML5 elements but it's not a future friendly approach.  Whilst it is true that current technology doesn't make much use of the semantics of the new elements it is only reasonable to expect that to change so, whilst this will work for now, you aren't setting yourself up for future success if you simply ignore them.</p>
 <h2>Use HTML5 elements with no fall back</h2>
 <p>This is a viable approach if you know that all your users will be using a browser that supports HTML5 elements.  This isn't as unreasonable as it sounds if you are building an application with <a href="http://phonegap.com/">PhoneGap</a> or <a href="http://awesomium.com/">Awesomium</a>.</p>
-<p>This is also a viable approach if you know that the significant majority of your users will be using a browser that supports HTML5 elements and you don't care about the minority that don't.  However, this is a rather irresponsible attitude and not encouraged.</p>
+<p>This is also a viable approach if you know that the significant majority of your users will be using a browser that supports HTML5 elements and you don't care about the minority who don't. However, if you do take this approach make sure you know that the content is still accessible in browsers that don't support</p>
 <h2>Use HTML5 elements and the HTML5 shiv</h2>
-<p>The <a href="https://github.com/aFarkas/html5shiv/">HTML5 shiv</a> is the most often cited way to get support for HTML5 elements in older versions of <abbr title="Internet Explorer">IE</abbr> and is well tested and proven.  The main downside of this is that it requires JavaScript to be enabled, without <abbr title="JavaScript">JS</abbr> you are back to the same situation as using HTML5 elements with no fall back.  This is an acceptable approach for some projects but for those that must work with <abbr title="JavaScript">JS</abbr> disabled for accessibility, or other policy reasons, it's not viable.</p>
+<p>The <a href="https://github.com/aFarkas/html5shiv/">HTML5 shiv</a> is the most often cited way to get support for HTML5 elements in older versions of Internet Explorer and is well tested and proven.  The main downside of this is that it requires JavaScript to be enabled, without JavaScript you are back to the same situation as using HTML5 elements with no fall back.  This is an acceptable approach for some projects but for those that must work with JavaScript disabled or must support older browsers that aren't Internet Explorer then it's not viable.</p>
 <h2>Use HTML5 elements with a class based fall back</h2>
-<p>This approach has the drawback of adding extra, semantically irrelevant, mark up to the page but has the advantage of maximum compatibility across all browsers.  To achieve this you would add an extra <code>&lt;div&gt;;</code> either as the parent or child of the HTML5 element and add a class that matches the HTML5 element:</p>
+<p>This approach has the drawback of adding extra, semantically irrelevant, mark up to the page but has the advantage of maximum compatibility across all browsers. To achieve this you would add an extra <code>&lt;div&gt;;</code> either as the parent or child of the HTML5 element and add a class that matches the HTML5 element:</p>
 <pre class="code"><code>&lt;section&gt;
   &lt;div class="section"&gt;
     &hellip;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
 
-<p>CSS styles are then based on the class (<code>.section</code>) rather than the element (<code>section</code>).  This has the advantage of being compatible with all browsers whilst still offering the semantics of the new elements.</p>
+<p>CSS styles are then based on the class (<code>.section</code>) rather than the element (<code>section</code>).  This has the advantage of being compatible with all browsers whilst still offering the semantics of the new elements but does add extra markup and complexity.</p>
 <h2>Summary</h2>
-<p>There is no right answer to which approach you should go with and there may be a case for mixing different approaches.  The approach you chose should be based on a through understanding of the project on which you are working including the browsers your users are actually using and plenty of testing.</p>
+<p>There is no set 'right approach' and, in some situations, there may even be a case for mixing different approaches together. The one you chose should be based on a thorough understanding of the project on which you are working, including the browsers your users are actually using, and plenty of testing.</p>
 <hr/>
 <p><code class="filename">40-progressive_enhancement/30-css.md</code></p>
 <h1>CSS</h1>
@@ -309,7 +311,7 @@ As suggested in the Homework file - I would expand this section with an explanat
 <li>Media queries</li>
 <li>Interaction optimisations</li>
 </ul>
-<p>Like HTML, CSS has progressive enhancement built in - browsers will ignore things they don't understand.  Again, providing we get the basics right, we can use advanced features provided we don't rely on them.</p>
+<p>Like HTML, CSS has progressive enhancement built in - browsers will ignore things they don't understand. Again, providing we get the basics right, we can use advanced features provided we don't rely on them.</p>
 <h2>Baseline presentation</h2>
 <ul>
 <li>Colours, typography, backgrounds, borders, etc.</li>
@@ -346,14 +348,18 @@ As suggested in the Homework file - I would expand this section with an explanat
 <hr/>
 <p><code class="filename">40-progressive_enhancement/32-progressively_enhanced_css.md</code></p>
 <h1>Progressively enhanced CSS</h1>
-<p>Progressive Enhancement is a cornerstone of web development but when people talk about it they are normally talking about JavaScript, if CSS is included then it's normally in reference to cosmetic enhancements.  Here's how I extend this principle deeper into CSS and layer enhancements on a larger scale, taking advantage of the <abbr title="cascading">C</abbr> in CSS.</p>
+<p>Progressive Enhancement is a cornerstone of web development but when people talk about it they are normally talking about JavaScript. If CSS is included then it's normally in reference to cosmetic enhancements. Here's you extend this principle deeper into CSS and layer enhancements on a larger scale, taking advantage of the cascade in cascading style sheets.</p>
 <h2>Baseline presentation</h2>
-<p>Start with a baseline presentation as the main body of your CSS file (i.e. no media queries).  This should include resets, colours, typography and core elements of the site.  At this stage the layout should be minimal and strictly linear - however tempted you might be, <em>do not</em> include floats or positioning at this stage.  This is the layout that older browsers that do not support media queries will receive, this is sometimes referred to by the maxim: "The absence of media queries is the first media query."</p>
+<p>Start with a baseline presentation as the main body of your CSS file (i.e. no media queries). This should include resets, colours, typography and core elements of the site.  At this stage the layout should be minimal and strictly linear - however tempted you might be, <em>do not</em> include floats or positioning yet. This is the layout that older browsers which do not support media queries will receive. Remember the maxim: "The absence of media queries is the first media query."</p>
 <h2>Narrow Screen</h2>
-<p>This is where we have our first media query and is used to enhance the presentation for browsers that support media queries. We use a media query of <code class="code">@media <b>only</b> all</code> to target these browsers.</p>
-<p>As we now know the browser has a reasonably modern CSS engine and can be relied on to handle most layout instructions corrects we can now start using floats and positioning to move away from the strictly linear baseline presentation.  This is what you would typically think of as your first mobile layout for smartphones.</p>
+<p>This is where you add your first media query, to enhance the presentation for browsers that support them. We use [5]<code class="code">@media <b>only</b> all</code> to target these browsers and, if they bite[7], we know they have a reasonably modern CSS engine and can be relied on to handle most layout instructions corrects. Now we can start using floats and positioning to move away from the strictly linear baseline presentation. This is what you would typically think of as your first[8] mobile layout for smartphones.</p>
 <h2>Layered Media Queries</h2>
-<p>I'm not going to say too much about this as it is one of the cornerstones of responsive design - use the code within the media queries to build out your layouts to adapt to screen size or other signal.  Pay particular attention to how declarations override each other and pay attention to the 'reset' value of CSS properties as they differ.</p>
+<p>I'm not going to say too much about this here as it is one of the cornerstones of responsive design[9] - use the code within the media queries to build out your layouts to adapt to screen size or other signal. Pay particular attention to how declarations override each other and to the 'reset' value of CSS properties as they differ.</p>
+<p>[4] You've switched into Accademic - work out which way you want this to read, collaboratively 'we can/should do x', or authoritative 'you should do y' (or if you're sticking with the 'this is how I do things' route, then this should probably be 'I do z', but I don't recommend it (see Note 2).
+[5] I've removed the phrase 'media query' here because you have it so many times in such a short period of time. Ideally, I'd like you to reduce the additional instances as well.</p>
+<p>[7] This is my voice not yours - put it into your language. I'm trying to join the two paragraphs and join the dots for the reader in such a way that they don't have to make logical inferences but can just agree with yours.
+[8] Implication that you will end up doing more than one layout for smartphones - is that right?
+[9] Err - isn't that the point of this book? Flag up where you'll actually be talking about it.</p>
 <hr/>
 <p><code class="filename">40-progressive_enhancement/33-interactions.md</code></p>
 <h1>Interactions</h1>
@@ -464,22 +470,6 @@ nav li li {
 </pre>
 
 <p>Whilst the <code>.pointer</code> hook might not seem necessary for <code>:hover</code> states it clearly isolates them and stops touch devices triggering them.</p>
-<hr/>
-<p><code class="filename">40-progressive_enhancement/34-building-using-ems.md</code></p>
-<h1>Building using ems</h1>
-<p>The fluid grids that form a key part of responsive design use percentages to define widths which means they adapt well to different viewport widths.  Whilst this works well for grids it will not work for heights and any other situation where we need to work with 'fixed' dimensions.</p>
-<h2>The problem with pixels</h2>
-<p>As a fixed unit, pixels might seem like they are the unit of choice for these fixed dimensions and they will certainly work up to a point.  The problem comes when we start combining pixel based layout with fonts that are sized in ems.  In order to make our sites accessible we should be working with a base font that is set to a percentage of the browser's base font (ideally 100%) and then size all our fonts in ems based on an assumed base font size of 16px.  By sizing all text relative to the base font it allows users to change the base font in their browser settings to suit their requirements and our styles will pick this up.</p>
-<p>For example, if we set our base font size to 100% and set our heading to 2em this will, by default result in paragraph text of 16px and heading text of 32px.  If a user has changed their base font size from the default of 16px to 20px then our paragraph text will be 20px and our heading text will be 40px maintaining the typographical relationship between the two types of text and respecting the larger font requested by the user.</p>
-<p>If this text was within a container that had dimensions specified in pixels - for example <code>max-width</code> is commonly used to specify an upper limit on a container - then although the text was now twice as big, the container would not have increased in size.  If the container size was specified in ems then the container would have grown in harmony with the text.</p>
-<h2>Converting from pixels to ems</h2>
-<p>Similar to the <code>target / contextt</code> formula used when creating fluid grids we can calculate the em equivalent size of a pixel dimension but in this case the context is the font size in pixels of the current context.</p>
-<p><code>max-width: 30em; /* */</code></p>
-<p>The problem with this approach is that the you have to keep track of the font size of the current element which can be a challenge, especially in more complex layouts where the font size of parent elements may have changed.</p>
-<h2>Using rems</h2>
-<p>To get round this issue of the font size of an element being liable to change the rem (root em) unit has been introduced.  This is always set to the size of the font on the <code>&lt;body&gt;</code> element so regardless of the font size of our current context it will always be the same.</p>
-<p>As the rem is a relatively new introduction to browsers we can't rely on it for our layouts, we still need to use a fall back.</p>
-<p>// Work out rem fall back.</p>
 <hr/>
 <p><code class="filename">40-progressive_enhancement/35-dealing-with-very-small-screens.md</code></p>
 <h1>Dealing with very small screens</h1>

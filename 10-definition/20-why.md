@@ -14,7 +14,4 @@ The main website that offers information about the company and the products will
 
 Once we move into the sales area of the site we are going to start to impose some minimum requirements. For a start we'll need to use cookies for session management and, whilst we'll not be totally reliant on JavaScript, we'll be using it a lot more to enhance the process and make it easier to complete. Whilst we might be excluding some people at this stage, the overheads of a fully device agnostic build start to become significant.
 
-Finally, in the servicing area we are going to take the least device agnostic approach as security and ease of use become the dominant concerns. However, by this stage we know the user is one of our customers so, whilst we don't want to be taking advantage of it and using it as an excuse, they do now have a relationship with us and we can start to expect more from them[1]. In addition, we can use this relationship to offer them more support and alternative channels so they are not completely excluded.
-
-
-[1] Are we actually expecting more or are we operating from a position of being more informed about their capabilities?
+Finally, in the servicing area we are going to take the least device agnostic approach as security and ease of use become the dominant concerns. However, by this stage we know the user is one of our customers so, whilst we don't want to be taking advantage of it and using it as an excuse, they do now have a relationship with us and we can start to expect more from them in terms of using a device that meets a set of minimum requirements. In addition, we can use this relationship to offer them more support and alternative channels so they are not completely excluded.

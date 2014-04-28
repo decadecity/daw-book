@@ -1,5 +1,4 @@
 #Coping without JavaScript
-
 JavaScript is taking an increasingly important role in modern web sites to the point where sites that rely entirely on JavaScript are no longer uncommon.  Whilst it is tempting to assume ubiquitous and up-to-date JavaScript support when building sites it is important to conciser the experience for browsers that either have limited or no JavaScript support.  This article outlines approaches to provide content in these situations and an practical example of how to employ them.
 
 ## `<noscript>`
